@@ -1,7 +1,7 @@
 # Medical Metabolic Center (MMC)
 Trabajo final del Master en Full Stack Development, ThreePoints 2024.
 
-![MMC Metabolic-Medical-Center-Logo](https://github.com/mpcevallos/mmc-tfm/assets/132369182/129c66f2-83d9-49fa-903d-787e01fb4840)
+![logo-mmc](https://github.com/mpcevallos/mmc-tfm/assets/132369182/c7c0c996-6cb0-4247-bd83-c762afd516f1)
 ![presentacion-app-mmc](https://github.com/mpcevallos/mmc-tfm/assets/132369182/1ce78062-d77d-4e24-973b-b7ec2c92bd76)
 
 <p align="left">
