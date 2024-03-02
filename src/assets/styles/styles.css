@@ -1,0 +1,48 @@
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.font-white {
+  color: white;
+}
+
+.bg-mint {
+  background-color: #16bfa3;
+}
+
+.heading1 {
+  font-size: 1.6rem;
+}
+
+.form-control {
+  padding: 1rem 4rem 1rem 4rem;
+}
+
+.shadowtop {
+  width: 100%;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 8rem 1rem 20rem;
+  background-color: #fff;
+  flex-direction: row;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 90%;
+}
+
+.forgot-password {
+  padding-left: 7.5em;
+}
