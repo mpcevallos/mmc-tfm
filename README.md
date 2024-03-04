@@ -18,7 +18,7 @@ Este es un proyecto académico que plantea el desarrollo de una plataforma que p
 - `Funcionalidad 3`: Permitir acceder al catálogo de especialidades desde la plataforma.
 - `Funcionalidad 4`: Permitir crear una cuenta de usuario y editar su información de contacto.
 
-- Un prototipo de la aplicación puede encontrarse en el siguiente enlace: https://www.figma.com/file/MfrnhTj5ALfBNcOIU0vQcG/MMC?type=design&node-id=0%3A1&mode=design&t=Ff3ZEnRIC3ocLXvS-1
+- Un prototipo interactivo de la aplicación puede encontrarse en el siguiente enlace: https://www.figma.com/proto/MfrnhTj5ALfBNcOIU0vQcG/MMC?node-id=59-43&starting-point-node-id=59%3A43&mode=design&t=rUKmAXp0IJ9YiDOC-1
 
 ## 🛠️: Tecnologías utilizadas
 - `FrontEnd`: React + Vite, JavaScript, Bootstrap.
