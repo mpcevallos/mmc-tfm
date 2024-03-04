@@ -26,5 +26,6 @@ Este es un proyecto académico que plantea el desarrollo de una plataforma que p
 
 ## Autores ✒️
 
-* **Marco Ramirez** - *Desarrollo BackEnd* 
-* **María Paula Cevallos y Franziska Stude** - *Desarrollo FrontEnd*
+* **Marco Ramírez** - *Desarrollo BackEnd* 
+* **María Paula Cevallos** - *Desarrollo FrontEnd*
+* **Franziska Stude, Marco Ramírez y María Paula Cevallos** - *Documentación*
