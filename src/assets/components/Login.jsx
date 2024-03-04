@@ -33,6 +33,7 @@ function Login() {
               Iniciar Sesión
             </button>
           </div>
+          <div>o iniciar sesión con</div>
         </form>
       </div>
     </div>

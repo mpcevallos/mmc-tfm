@@ -2,6 +2,8 @@ import { useState } from "react";
 import NavBar from "./src/assets/components/NavBar.jsx";
 import "./src/assets/styles/styles.css";
 import Login from "./src/assets/components/Login.jsx";
+import FindDate from "./src/assets/components/FindDate.jsx";
+import Specialist from "./src/assets/components/Specialist.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,49 +17,15 @@ function App() {
             <div className="col">
               <Login />
             </div>
-            <div className="col">
-              <div className="float-end">
-                <div className="row">
-                  <div className="col"></div>
-                </div>
-                <img
-                  src="./src/assets/img/medico2.png"
-                  alt="Fotografía de un médico"
-                ></img>
-              </div>
+            <div className="col background-img-doctor">
+              <div className="float-end"></div>
             </div>
           </div>
         </div>
       </div>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
-      <p>Texto prueba</p>
+      <FindDate />
+      <Specialist />
+
       <p>Texto prueba</p>
     </>
   );

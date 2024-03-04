@@ -1,3 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-family: sans-serif;
+  font-size: 1rem;
+  padding-right: 10px;
+}
+
+select {
+  font-size: 1rem;
+  padding: 2px 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.color-text-mint {
+  color: #16bfa3;
+}
+
 .poppins-regular {
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -38,6 +62,10 @@
   flex-direction: row;
 }
 
+.shadowsearchdate {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
 .col-6 {
   flex: 0 0 auto;
   width: 90%;
@@ -45,4 +73,50 @@
 
 .forgot-password {
   padding-left: 7.5em;
+}
+
+.big-mint-icons {
+  font-size: 72px;
+  color: #16bfa3;
+}
+
+.small-mint-icons {
+  font-size: 48px;
+  color: #16bfa3;
+}
+
+/*.col {
+  background-color: green;
+  color: white;
+  font-size: 50px;
+  border: 2px solid #640328;
+}
+
+.row {
+  background-color: orange;
+  border: 3px solid rgb(110, 73, 5);
+  padding: 5px;
+  margin: 10px;
+}
+
+.columna {
+  color: white;
+  font-size: 25px;
+  background-color: #05077b;
+  border: 5px solid white;
+}*/
+
+.btn-position-fixed {
+  margin-left: 20rem;
+}
+
+.nav-link {
+  width: max-content;
+}
+
+.background-img-doctor {
+  background-image: url(../img/medico2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

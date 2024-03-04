@@ -61,7 +61,17 @@ function NavBar() {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    Registrate
+                    Preguntas Frecuentes
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Soporte
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Mi Cuenta
                   </a>
                 </li>
               </ul>
@@ -75,9 +85,9 @@ function NavBar() {
             <div className="row">
               <form className="d-flex" role="search"></form>
               <div className="col">
-                <div className="col d-flex justify-content-space-between mb-3">
+                <div className="col d-flex justify-content-end mb-3">
                   <button
-                    className="btn btn-outline-primary btn-lg rounded-pill"
+                    className="btn btn-outline-primary btn-lg btn-position-fixed"
                     type="submit"
                   >
                     Iniciar Sesión
