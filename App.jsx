@@ -3,7 +3,10 @@ import NavBar from "./src/assets/components/NavBar.jsx";
 import "./src/assets/styles/styles.css";
 import Login from "./src/assets/components/Login.jsx";
 import FindDate from "./src/assets/components/FindDate.jsx";
-import Specialist from "./src/assets/components/Specialist.jsx";
+import Specialities from "./src/assets/components/Specialities.jsx";
+import SearchServices from "./src/assets/components/SearchServices.jsx";
+import UserRegister from "./src/assets/components/UserRegister.jsx";
+import LoginPage from "./src/assets/components/Login.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,7 +27,10 @@ function App() {
         </div>
       </div>
       <FindDate />
-      <Specialist />
+      <SearchServices />
+      <Specialities />
+      <LoginPage />
+      <UserRegister />
 
       <p>Texto prueba</p>
     </>

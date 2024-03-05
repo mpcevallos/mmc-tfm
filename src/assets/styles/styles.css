@@ -22,6 +22,10 @@ select {
   color: #16bfa3;
 }
 
+.color-text-blue {
+  color: #0163e0;
+}
+
 .poppins-regular {
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -51,7 +55,7 @@ select {
 }
 
 .form-control {
-  padding: 1rem 4rem 1rem 4rem;
+  padding: 1rem;
 }
 
 .shadowtop {
@@ -65,7 +69,12 @@ select {
 .shadowsearchdate {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  /*flex-direction: row;*/
+  width: 1398rem;
+  padding: 30px 60px 30px 60px;
+  margin-bottom: 70px;
 }
+
 .col-6 {
   flex: 0 0 auto;
   width: 90%;

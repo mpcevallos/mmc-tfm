@@ -6,18 +6,21 @@ function FindDate() {
     <>
       <div className="container text-center mt-5 shadowsearchdate rounded">
         <div className="row">
-          <div
-            className="col poppins-semibold color-text-mint"
-            style={{ color: "#16bfa3" }}
-          >
-            <iconify-icon
-              icon="tabler:calendar-month"
-              class="small-mint-icons"
-            ></iconify-icon>
-            {"Agenda una cita"}
+          <div className="col-md-12 col-lg-6 poppins-semibold color-text-mint">
+            <div className="d-flex align-items-center">
+              <Icon icon="tabler:calendar-month" className="small-mint-icons" />
+              <span
+                className="ml-2 "
+                style={{ fontSize: "18px", fontWeight: "bold" }}
+              >
+                Agenda una cita
+              </span>
+            </div>
           </div>
-          <div className="col poppins-medium">
-            <label for="search-date mt-3">Fecha:&nbsp;</label>
+          <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
+            <label htmlFor="search-date" className="mt-3">
+              Fecha:&nbsp;
+            </label>
             <input
               type="date"
               id="start"
@@ -25,34 +28,42 @@ function FindDate() {
               value="2018-07-22"
               min="2018-01-01"
               max="2018-12-31"
+              className="form-select ml-2"
             />
           </div>
-          <div className="col poppins-medium">
-            <label for="place-select">Lugar:&nbsp;</label>
-
-            <select name="place" id="place-select">
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
+            <label htmlFor="place-select">Lugar:&nbsp;</label>
+            <select name="place" id="place-select" className="form-select ml-2">
               <option value="select-place">Seleccionar</option>
               <option value="consultorio1">Consultorio 1</option>
               <option value="consultorio2">Consultorio 2</option>
               <option value="consultorio3">Consultorio 3</option>
             </select>
           </div>
-          <div className="col poppins-medium">
-            <label for="especialidad-select">&nbsp;</label>
-            <select name="especialidades" id="especialidad-select">
-              <option value="">Especialidad</option>
+          <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
+            <label htmlFor="especialidad-select">Especialidad:&nbsp;</label>
+            <select
+              name="especialidades"
+              id="especialidad-select"
+              className="form-select ml-2"
+            >
+              <option value="">Seleccionar</option>
               <option value="cardiologia">Cardiologia</option>
               <option value="alergologia">Alergologia</option>
               <option value="cirugia-general">Cirugia General</option>
             </select>
           </div>
-          <div className="col poppins-medium">
+        </div>
+        <div className="row mt-3">
+          <div className="col poppins-semibold">
             <button
               className="btn btn-primary btn-lg rounded-pill"
               type="submit"
             >
               <i className="bi bi-search"></i>
-              &nbsp;&nbsp;Buscar
+              &nbsp;&nbsp;<b>Buscar</b>
             </button>
           </div>
         </div>
