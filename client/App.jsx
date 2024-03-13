@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./src/assets/components/NavBar.jsx";
 import "./src/assets/styles/styles.css";
 import Login from "./src/assets/components/Login.jsx";
 import Specialities from "./src/assets/components/Specialities.jsx";
-import UserRegister from "./src/assets/components/UserRegister.jsx";
-import SearchServices from "./src/assets/components/SearchServices.jsx"; // Asegúrate de importar el componente de búsqueda
-import specialitiesData from "./path-to-your-specialities-data"; // Reemplaza con la ruta correcta a tus datos de especialidades
+import Appointment from "./src/assets/components/Appointment.jsx";
+import SearchServices from "./src/assets/components/SearchServices.jsx";
+import Header from "./src/assets/components/Header";
+import UserRegister from "./src/assets/components/UserRegister";
 
 function App() {
   const [token, setToken] = useState(null);
+  console.log("Token:", token);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -40,44 +41,22 @@ function App() {
   return (
     <>
       {token ? (
-        // Si estás logueado, muestra el componente FindDate centrado
-        <div className="container-fluid text-center">
-          <div className="row bg-mint mt-8">
-            <div className="col-lg-12">
-              <Login onLoginComplete={onLoginComplete} />
-            </div>
-          </div>
+        <div>
+          {/* Mostrar componentes cuando hay un token */}
+          <Header texto="Dashboard" />
         </div>
       ) : (
-        // Si no estás logueado, muestra el componente UserRegister
-        <UserRegister />
-      )}
-      {token && (
-        // Si estás logueado, muestra el componente Specialities centrado
-        <div className="container-fluid text-center">
-          <div className="row bg-mint mt-8">
-            <div className="col-lg-12">
-              <Specialities />
-            </div>
-          </div>
-        </div>
-      )}
-      {token && (
-        // Si estás logueado, muestra el componente SearchServices
-        <SearchServices
-          searchTerm={searchTerm}
-          handleSearchChange={handleSearchChange}
-        />
-      )}
-      {!token && (
-        // Si no estás logueado, muestra el componente Login
-        <div className="container-fluid text-center">
-          <div className="row bg-mint mt-8">
-            <div className="col-lg-12">
-              <Login onLoginComplete={onLoginComplete} />
-            </div>
-          </div>
-        </div>
+        // Mostrar solo el componente Login cuando no hay un token
+        <>
+          <Specialities onLoginComplete={onLoginComplete} />
+          <SearchServices
+            onLoginComplete={onLoginComplete}
+            searchTerm={searchTerm}
+            handleSearchChange={handleSearchChange}
+          />
+          <Specialities />
+          <Appointment />
+        </>
       )}
     </>
   );

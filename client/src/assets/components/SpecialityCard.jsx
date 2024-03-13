@@ -6,7 +6,7 @@ function SpecialityCard({ imgSrc, title, description }) {
       <img
         src={imgSrc}
         className="card-img-top"
-        alt={`Card image for ${title}`}
+        alt={"Card image for ${title}"}
       />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>

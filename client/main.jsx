@@ -14,22 +14,22 @@ import LoginPage from "./src/assets/components/LoginPage.jsx";
 import Faqs from "./src/assets/components/Faqs.jsx";
 import SearchServices from "./src/assets/components/SearchServices.jsx";
 import AboutUs from "./src/assets/components/AboutUs.jsx";
+import App from "./App.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
       <NavBar />
+      <App />
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<UserRegister />} />
-        <Route path="/services" element={<Specialities />} />
         <Route path="/agendacita" element={<Appointment />} />
         <Route path="/quienes-somos" element={<AboutUs />} />
         <Route path="/preguntas-frecuentes" element={<Faqs />} />
       </Routes>
       <div>&nbsp;&nbsp;</div>
-      <Appointment />
       <Footer />
     </Router>
   </React.StrictMode>
