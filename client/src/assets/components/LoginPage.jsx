@@ -1,9 +1,10 @@
 import React from "react";
 import { Icon } from "@iconify-icon/react";
+import { Link } from "react-router-dom";
 
-function Login() {
+function LoginPage() {
   return (
-    <div className="d-flex col-12 mt-4 pb-5 justify-content-center align-items-center float-start">
+    <div className="container-fluid d-flex bg-mint col-12 pb-5 justify-content-center align-items-center float-start">
       <div className="text-center">
         <h1 className="poppins-regular heading1 font-white text-center mt-5">
           Iniciar sesión
@@ -13,16 +14,16 @@ function Login() {
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputEmail"
               aria-describedby="emailHelp"
               placeholder="Ingresa tu correo"
             ></input>
           </div>
-          <div class="mb-3 p-3">
+          <div class="mb-3 p-2">
             <input
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputPassword"
               placeholder="Contraseña"
             ></input>
             <div class="mb-2 forgot-password mt-3 font-white">
@@ -34,8 +35,7 @@ function Login() {
               Iniciar Sesión
             </button>
           </div>
-          <br></br>
-          <div className="font-white">o iniciar sesión con</div>
+          <div className="font-white pt-3">o iniciar sesión con</div>
           <div className="pt-3">
             <iconify-icon
               icon="logos:facebook"
@@ -57,9 +57,12 @@ function Login() {
             ></iconify-icon>
           </div>
         </form>
+        <p className="font-white mt-2 align-items-center">
+          <Link to="/register">Registrate aquí</Link>
+        </p>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default LoginPage;

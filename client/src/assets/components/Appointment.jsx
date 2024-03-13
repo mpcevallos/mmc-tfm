@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify-icon/react";
 
-function FindDate() {
+function Appointment() {
   return (
     <>
       <div className="container text-center mt-5 shadowsearchdate rounded">
@@ -13,21 +13,20 @@ function FindDate() {
                 className="ml-2 "
                 style={{ fontSize: "18px", fontWeight: "bold" }}
               >
-                Agenda una cita
+                &nbsp;&nbsp;Agenda una cita
               </span>
             </div>
           </div>
           <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
             <label htmlFor="search-date" className="mt-3">
-              Fecha:&nbsp;
+              Fecha y Hora:&nbsp;
             </label>
             <input
-              type="date"
-              id="start"
-              name="trip-start"
-              value="2018-07-22"
-              min="2018-01-01"
-              max="2018-12-31"
+              type="datetime-local"
+              id="cita"
+              name="agendar-cita"
+              min="2024-01-01"
+              max="2024-12-31"
               className="form-select ml-2"
             />
           </div>
@@ -56,7 +55,7 @@ function FindDate() {
             </select>
           </div>
         </div>
-        <div className="row mt-3">
+        <div className="row mt-3 float-end">
           <div className="col poppins-semibold">
             <button
               className="btn btn-primary btn-lg rounded-pill"
@@ -72,4 +71,4 @@ function FindDate() {
   );
 }
 
-export default FindDate;
+export default Appointment;
