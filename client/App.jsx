@@ -1,6 +1,7 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
-import "./src/assets/styles/styles.css";
+import { useLocalStorage } from "react-use";
 
 //Componentes importados
 import Login from "./src/assets/components/Login.jsx";
@@ -10,12 +11,19 @@ import SearchServices from "./src/assets/components/SearchServices.jsx";
 import Header from "./src/assets/components/Header";
 import UserRegister from "./src/assets/components/UserRegister";
 import Dashboard from "./src/assets/components/Dashboard";
+import PrivateRouter from "./src/assets/components/utilities/PrivateRouter";
+import NavBar from "./src/assets/components/NavBar.jsx";
+import AboutUs from "./src/assets/components/AboutUs.jsx";
+import Faqs from "./src/assets/components/Faqs.jsx";
+import Footer from "./src/assets/components/Footer.jsx";
+import NotFound from "./src/assets/components/NotFound.jsx";
 
 function App({ buscarservicio }) {
   const [token, setToken] = useState(null);
   console.log("Token:", token);
   const [searchTerm, setSearchTerm] = useState([]);
   const [speciality, setSpeciality] = useState([]);
+  const [user, setUser] = useLocalStorage("token");
   // const [handleLogin, setHandleLogin] = React.useState(false);
 
   useEffect(() => {
@@ -27,9 +35,9 @@ function App({ buscarservicio }) {
     }
   }, []);
 
-  if (onLoginComplete === true) {
-    return <Dashboard />;
-  }
+  // if (onLoginComplete === true) {
+  //   return <Dashboard />;
+  // }
 
   // Carga los datos de las especialidades desde el backend al iniciar la aplicación y actualiza el estado de searchTerm al hacerlo
 
@@ -90,19 +98,38 @@ function App({ buscarservicio }) {
   ];
 
   return (
-    <Switch>
-      <Route path="/login">
-        {token ? (
-          <Redirect to="/dashboard" />
-        ) : (
-          <Login onLoginComplete={onLoginComplete} />
-        )}
-      </Route>
-      <Route path="/dashboard">
-        {token ? <Dashboard /> : <Redirect to="/login" />}
-      </Route>
-      {/* Agrega otras rutas según sea necesario */}
-    </Switch>
+    <BrowserRouter>
+      <NavBar />
+
+      <Routes>
+        <Route index element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<UserRegister />} />
+        // Ruta privada a Dashboard
+        <Route element={<PrivateRouter token={!!token} />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/agendacita" element={<Appointment />} />
+        </Route>
+        <Route path="/quienes-somos" element={<AboutUs />} />
+        <Route path="/preguntas-frecuentes" element={<Faqs />} />
+        <Route path="/especialidades" element={<Specialities />} />
+        <Route path="/searchservices" element={<SearchServices />} />
+        <Route
+          path="/notfound"
+          element={
+            <NotFound texto="Error 404 (Page Not Found) de página no encontrada" />
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <NotFound texto="Error 404 (Page Not Found) de página no encontrada" />
+          }
+        />
+      </Routes>
+      <div>&nbsp;&nbsp;</div>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

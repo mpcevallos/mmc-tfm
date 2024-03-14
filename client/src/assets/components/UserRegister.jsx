@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Icon } from "@iconify-icon/react";
 import "/src/assets/styles/styles.css";
@@ -6,6 +7,7 @@ import { register } from "../../../services/user-services";
 import Footer from "./Footer";
 
 function UserRegister() {
+  const [token, setToken] = useState(null);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
@@ -20,6 +22,8 @@ function UserRegister() {
     email,
     password,
   };
+
+  const navigate = useNavigate();
 
   const CreateUserHandler = async () => {
     //setNombre("Marco");
@@ -37,13 +41,21 @@ function UserRegister() {
         const data = await response.json();
         console.log({ data });
         setError(false);
-        //const token = data.token;
-        //localStorage.setItem("token", token);
-        //onLoginComplete(false, token);
+        const token = data.token;
+        // Almacena el token en el localStorage
+        localStorage.setItem("token", token);
 
-        // Después de obtener el token, obtén los posts
-        //const posts = await services(); // Esto asume que getPost devuelve los posts
-        //console.log("Posts obtenidos:", posts);
+        // Actualiza el estado del token
+        http: setToken(token);
+
+        // Redirige a la página principal FUNCIONANDO...
+        navigate("/dashboard", {
+          replace: true,
+          state: {
+            logged: true,
+            token: token,
+          },
+        });
       } else {
         console.log(response.status);
         setError(true);
@@ -147,7 +159,7 @@ function UserRegister() {
             <button
               type="submit"
               className="btn btn-primary btn-lg"
-              onClick={CreateUserHandler}
+              onSubmit={CreateUserHandler}
             >
               Registra mi cuenta
             </button>

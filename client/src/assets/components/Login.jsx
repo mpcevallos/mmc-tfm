@@ -1,3 +1,4 @@
+import { Routes, Route, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { services } from "../../../services/post-services";
 
@@ -18,30 +19,60 @@ function Login({ onLoginComplete }) {
     }
   }, []);
 
+  const navigate = useNavigate();
+
   const loginHandler = async () => {
     try {
+      // Enviará los datos de inicio de sesión al servidor y obtener el token de respuesta
       const response = await fetch(apiUrl, {
+        // Envía los datos de inicio de sesión al servidor y obtener el token de respuesta
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        // Enviará los datos de inicio de sesión al servidor y obtener el token de respuesta
         body: JSON.stringify({ email, password }),
       });
-
+      // Si la respuesta es exitosa, obtiene el token de la respuesta y lo almacena en el localStorage
       if (response.ok) {
+        // Si la respuesta es exitosa, obtiene el token de la respuesta y lo almacena en el localStorage
         const data = await response.json();
         setError(false);
         const token = data.token;
+        // Almacena el token en el localStorage
         localStorage.setItem("token", token);
-        setToken(token);
+        // Almacena el usuario en el localStorage
+        localStorage.setItem("user", JSON.stringify(data.success));
+        // Almacena el mensaje de error en el localStorage
+        localStorage.setItem("message", JSON.stringify(data.message));
+
+        // Actualiza el estado del token
+        const urlCita =
+          "http://localhost:3000/api/cita/" + localStorage.getItem("user");
+        console.log(urlCita);
+        // Actualiza el estado del token
+        http: setToken(token);
 
         // Después de obtener el token, obtén los posts
         const posts = await services(); // Esto asume que getPost devuelve los posts
         console.log("Posts obtenidos:", posts);
 
+        // Llama a la función onLoginComplete con el token almacenado en el localStorage y el estado de error falso
+        //y el token obtenido al iniciar sesión correctamente
         if (typeof onLoginComplete === "function") {
           onLoginComplete(false, token);
         }
+
+        // Redirige a la página principal FUNCIONANDO...
+        navigate("/dashboard", {
+          replace: true,
+          state: {
+            logged: true,
+            token: token,
+          },
+        });
+        // Si la respuesta no es exitosa, muestra un mensaje de error y actualiza el estado de error
+        // onResetForm();
       } else {
         console.log(response.status);
         setError(true);
@@ -52,6 +83,8 @@ function Login({ onLoginComplete }) {
 
         onLoginComplete(true, null);
       }
+
+      // Si la respuesta no es exitosa, muestra un mensaje de error y actualiza el estado de error
     } catch (error) {
       console.error("Error:", error);
       setError(true);
@@ -60,8 +93,6 @@ function Login({ onLoginComplete }) {
       console.error(
         "Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde."
       );
-
-      onLoginComplete(true, null);
     }
   };
 
@@ -128,7 +159,7 @@ function Login({ onLoginComplete }) {
             <button
               type="submit"
               className="btn btn-primary btn-lg"
-              onClick={loginHandler}
+              onSubmit={loginHandler}
             >
               Iniciar Sesión
             </button>

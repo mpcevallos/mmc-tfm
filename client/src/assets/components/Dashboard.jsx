@@ -16,6 +16,31 @@ function Dashboard(onLoginComplete, token) {
     );
   }
 
+  const data = [
+    {
+      id: 1,
+      usuario: 14,
+      especialidad: "Cirugía general",
+      consultorio: "Consultorio 2",
+      hospital: "Hospital central",
+      fecha: "2024-04-01T06:00:00.000Z",
+      hora: "10:00:00",
+      registro: "2024-03-13T05:03:52.000Z",
+      estatus: "Cita activa",
+    },
+    {
+      id: 3,
+      usuario: 14,
+      especialidad: "Cardiología",
+      consultorio: "Consultorio 3",
+      hospital: "Hospital central",
+      fecha: "2024-04-04T06:00:00.000Z",
+      hora: "17:00:00",
+      registro: "2024-03-13T05:43:20.000Z",
+      estatus: "Cita activa",
+    },
+  ];
+
   return (
     <>
       <HeaderDash texto="Panel del usuario" className="container-fluid" />
@@ -131,7 +156,7 @@ function Dashboard(onLoginComplete, token) {
                 <button
                   type="submit"
                   className="btn btn-primary btn-lg"
-                  afterSubmit={() => toDashboard(true)}
+                  onSubmit={() => toDashboard(true)}
                 >
                   Registra mi cuenta
                 </button>
@@ -139,6 +164,27 @@ function Dashboard(onLoginComplete, token) {
             </form>
           </div>
         </div>
+      </div>
+
+      <div>
+        <tbody>
+          <tr>
+            <th>Usuario:</th>
+            <th>Especialidad:</th>
+            <th>Consultorio:</th>
+            <th>Hospital:</th>
+            <th>Fecha:</th>
+          </tr>
+          {data.map((item, index) => (
+            <tr key={index}>
+              <td>{item.usuario}</td>
+              <td>{item.especialidad}</td>
+              <td>{item.consultorio}</td>
+              <td>{item.hospital}</td>
+              <td>{item.fecha}</td>
+            </tr>
+          ))}
+        </tbody>
       </div>
     </>
   );

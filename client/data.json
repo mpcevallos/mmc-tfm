@@ -1,0 +1,24 @@
+"data": [
+        {
+            "id": 1,
+            "usuario": 14,
+            "especialidad": "Cirugía general",
+            "consultorio": "Consultorio 2",
+            "hospital": "Hospital central",
+            "fecha": "2024-04-01T06:00:00.000Z",
+            "hora": "10:00:00",
+            "registro": "2024-03-13T05:03:52.000Z",
+            "estatus": "Cita activa"
+        },
+        {
+            "id": 3,
+            "usuario": 14,
+            "especialidad": "Cardiología",
+            "consultorio": "Consultorio 3",
+            "hospital": "Hospital central",
+            "fecha": "2024-04-04T06:00:00.000Z",
+            "hora": "17:00:00",
+            "registro": "2024-03-13T05:43:20.000Z",
+            "estatus": "Cita activa"
+        }
+    ]
