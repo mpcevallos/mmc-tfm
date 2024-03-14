@@ -7,8 +7,8 @@ import SearchServices from "./SearchServices";
 function Specialities() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
   const specialitiesData = [
@@ -29,8 +29,10 @@ function Specialities() {
     },
   ];
 
-  const filteredSpecialities = specialitiesData.filter((speciality) =>
-    speciality.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredSpecialities = specialitiesData.filter(
+    (speciality) =>
+      speciality.title &&
+      speciality.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (

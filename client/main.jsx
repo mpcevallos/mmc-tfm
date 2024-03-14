@@ -15,19 +15,21 @@ import Faqs from "./src/assets/components/Faqs.jsx";
 import SearchServices from "./src/assets/components/SearchServices.jsx";
 import AboutUs from "./src/assets/components/AboutUs.jsx";
 import App from "./App.jsx";
+import Dashboard from "./src/assets/components/Dashboard.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
       <NavBar />
-      <App />
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<UserRegister />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/agendacita" element={<Appointment />} />
         <Route path="/quienes-somos" element={<AboutUs />} />
         <Route path="/preguntas-frecuentes" element={<Faqs />} />
+        <Route path="/especialidades" element={<Specialities />} />
       </Routes>
       <div>&nbsp;&nbsp;</div>
       <Footer />

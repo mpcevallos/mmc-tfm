@@ -6,11 +6,13 @@ import Appointment from "./src/assets/components/Appointment.jsx";
 import SearchServices from "./src/assets/components/SearchServices.jsx";
 import Header from "./src/assets/components/Header";
 import UserRegister from "./src/assets/components/UserRegister";
+import Dashboard from "./src/assets/components/Dashboard";
 
-function App() {
+function App({ buscarservicio }) {
   const [token, setToken] = useState(null);
   console.log("Token:", token);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState([]);
+  const [speciality, setSpeciality] = useState([]);
 
   useEffect(() => {
     // Verifica si hay un token almacenado en el localStorage al cargar el componente
@@ -21,10 +23,20 @@ function App() {
     }
   }, []);
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+  // Carga los datos de las especialidades desde el backend al iniciar la aplicación y actualiza el estado de searchTerm al hacerlo
+
+  const handleSearch = (event) => {
+    const filtered = speciality.filter((speciality) =>
+      speciality.title.toLowerCase().includes(event.toLowerCase())
+    );
+    setSearchTerm(filteredSpecialities);
   };
 
+  // Función para manejar el cierre de sesión y actualizar el estado del token al hacerlo
+  function onLogOut() {
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
   const onLoginComplete = (error, token) => {
     if (error) {
       // Maneja errores de inicio de sesión
@@ -38,24 +50,48 @@ function App() {
     }
   };
 
+  const handleLogin = () => {
+    // Lógica de autenticación aquí (usando el token JWT)
+    setToken(true);
+
+    // Después de la autenticación, obtén los posts
+    getPosts(token)
+      .then((data) => {
+        setPosts(data);
+        setFilteredPosts(data); // Inicialmente, muestra todos los posts
+      })
+      .catch((error) => console.error("Error:", error));
+  };
+
+  const specialitiesData = [
+    {
+      imgSrc: "../src/assets/img/especialidades/Especialidad1.png",
+      title: "Especialidad 1",
+      description: "Some quick example text for Especialidad 1.",
+    },
+    {
+      imgSrc: "../src/assets/img/especialidades/Especialidad2.png",
+      title: "Especialidad 2",
+      description: "Some quick example text for Especialidad 2.",
+    },
+    {
+      imgSrc: "../src/assets/img/especialidades/Especialidad3.png",
+      title: "Especialidad 3",
+      description: "Some quick example text for Especialidad 3.",
+    },
+  ];
+
   return (
     <>
       {token ? (
         <div>
-          {/* Mostrar componentes cuando hay un token */}
-          <Header texto="Dashboard" />
+          <Login onLoginComplete={handleLogin} />
         </div>
       ) : (
-        // Mostrar solo el componente Login cuando no hay un token
+        // Mostrar componentes cuando no hay un token
         <>
-          <Specialities onLoginComplete={onLoginComplete} />
-          <SearchServices
-            onLoginComplete={onLoginComplete}
-            searchTerm={searchTerm}
-            handleSearchChange={handleSearchChange}
-          />
-          <Specialities />
-          <Appointment />
+          <Header onLogOut={onLogOut} />
+          <Dashboard onLogOut={onLogOut} />
         </>
       )}
     </>

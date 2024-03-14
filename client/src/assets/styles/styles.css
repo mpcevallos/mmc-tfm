@@ -31,6 +31,16 @@ a {
   color: #0163e0;
 }
 
+.red {
+  color: #eb4335;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
 .poppins-regular {
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -47,12 +57,35 @@ a {
   font-style: normal;
 }
 
+.poppins-sm-semibold {
+  font-size: 1.3rem;
+}
+
 .title {
-  font-size: larger;
+  font-size: 1.3rem;
 }
 
 .font-white {
   color: white;
+}
+
+.font-gray {
+  color: #5c5c5c;
+}
+
+.font-mint {
+  color: #16bfa3;
+}
+
+.font-header-dash {
+  font-weight: 500;
+}
+
+.font-header-dash a:active,
+.font-header-dash a:hover,
+.font-header-dash a:visited,
+.font-header-dash a {
+  color: #fff;
 }
 
 .bg-mint {
@@ -112,6 +145,11 @@ a {
   color: #16bfa3;
 }
 
+.small-icons-footer {
+  font-size: 36px;
+  color: #FFF;
+}
+
 .form-check-input {
   width: 1.5rem;
   height: 1.5rem;
@@ -153,6 +191,11 @@ a {
 
 .text-nav-left {
   line-height: 1.2em; /* Otra forma de ajustar el espacio entre líneas */
+}
+
+.float-inline-start {
+  float: inline-start;
+  line-height: 1.2em;
 }
 
 /* .background-img-doctor {

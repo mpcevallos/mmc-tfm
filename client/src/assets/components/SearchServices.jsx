@@ -1,11 +1,16 @@
 import React from "react";
 import { Icon } from "@iconify-icon/react";
 
-const handleSearchChange = (e) => {
-  setSearchTerm(e.target.value);
+const handleSearchChange = (event) => {
+  setSearchTerm(event.target.value);
 };
 
-function SearchServices({ searchTerm, handleSearchChange }) {
+function SearchServices({
+  searchTerm,
+  handleSearchChange,
+  onLoginComplete,
+  token,
+}) {
   return (
     <div className="container-fluid bg-search col-12 mt-5 mb-5 pt-5">
       <div className="d-flex container-fluid col-12 mt-4 pb-5 align-items-center justify-content-center">
@@ -41,7 +46,6 @@ function SearchServices({ searchTerm, handleSearchChange }) {
                   value={searchTerm}
                   onChange={handleSearchChange}
                   className="form-control rounded-pill"
-                  id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Buscar por especialidad"
                 />

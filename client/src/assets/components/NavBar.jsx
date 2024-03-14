@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Login from "./Login";
 import Faqs from "./Faqs";
 
+// Función para cerrar la sesión y actualizar el estado del token al hacerlo
 function onLogOut() {
   localStorage.removeItem("token");
   window.location.reload();
@@ -52,33 +53,16 @@ function NavBar() {
                       Quiénes Somos
                     </Link>
                   </li>
-                  <li className="nav-item dropdown">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
+                  <li className="nav-item ">
+                    <Link to="/register" className="nav-link active">
                       Registrate Gratis
                     </Link>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <Link className="dropdown-item" to="/register">
-                          Como paciente
-                        </Link>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Como especialista
-                        </a>
-                      </li>
-                    </ul>
                   </li>
-                  <li className="nav-link active">
+                  <li className="nav-link">
                     <Link to="/preguntas-frecuentes">Preguntas Frecuentes</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link active" to="#">
+                    <Link className="nav-link active" to="/dashboard">
                       Mi Cuenta
                     </Link>
                   </li>
@@ -112,24 +96,26 @@ function NavBar() {
                         onClick={() => onLogOut(true)}
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <button
+                        <span
                           type="button"
                           class="btn-close btn-close-white"
                           aria-label="Close"
-                        ></button>
+                        ></span>
                         &nbsp;Cerrar Sesión
                       </button>
-                      <iconify-icon
-                        icon="mdi:account-circle"
-                        width="35"
-                        height="35"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          color: "#5C5C5C",
-                          marginLeft: "10px",
-                        }}
-                      ></iconify-icon>
+                      <Link to="/dashboard">
+                        <iconify-icon
+                          icon="mdi:account-circle"
+                          width="35"
+                          height="35"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            color: "#5C5C5C",
+                            marginLeft: "10px",
+                          }}
+                        ></iconify-icon>
+                      </Link>
                     </div>
                   </div>
                 </div>
