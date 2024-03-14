@@ -1,6 +1,6 @@
 pipeline {
 
-agent any
+agent none
 
 stages {
     stage('Checkout') {
@@ -9,7 +9,7 @@ stages {
         }
     }
 
-    stage('Pruebas de SAST') {
+    stage('Análisis estático de código fuente con SonarQube') {
         steps {
             script {
                 def scannerHome = tool 'sonar-scanner'
@@ -29,13 +29,6 @@ stages {
         }
     }
 
-    stage('Build') {
-        steps {
-            echo 'Building..'
-        }
-    }
-}
-
 post {
     success {
         echo 'Pipeline exitoso'
@@ -43,5 +36,6 @@ post {
     failure {
         echo 'Pipeline fallido'
     }
+}
 }
 }

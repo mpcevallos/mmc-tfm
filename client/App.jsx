@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 import "./src/assets/styles/styles.css";
+
+//Componentes importados
 import Login from "./src/assets/components/Login.jsx";
 import Specialities from "./src/assets/components/Specialities.jsx";
 import Appointment from "./src/assets/components/Appointment.jsx";
@@ -82,19 +85,19 @@ function App({ buscarservicio }) {
   ];
 
   return (
-    <>
-      {token ? (
-        <div>
-          <Login onLoginComplete={handleLogin} />
-        </div>
-      ) : (
-        // Mostrar componentes cuando no hay un token
-        <>
-          <Header onLogOut={onLogOut} />
-          <Dashboard onLogOut={onLogOut} />
-        </>
-      )}
-    </>
+    <Switch>
+      <Route path="/login">
+        {token ? (
+          <Redirect to="/dashboard" />
+        ) : (
+          <Login onLoginComplete={onLoginComplete} />
+        )}
+      </Route>
+      <Route path="/dashboard">
+        {token ? <Dashboard /> : <Redirect to="/login" />}
+      </Route>
+      {/* Agrega otras rutas según sea necesario */}
+    </Switch>
   );
 }
 
