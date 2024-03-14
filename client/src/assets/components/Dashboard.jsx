@@ -4,6 +4,18 @@ import { Icon } from "@iconify-icon/react";
 import { Link } from "react-router-dom";
 
 function Dashboard(onLoginComplete, token) {
+  const [toDashboard, setToDashboard] = React.useState(false);
+
+  if (toDashboard) {
+    return (
+      <Navigate
+        to="/dashboard"
+        onLoginComplete={onLoginComplete}
+        token={token}
+      />
+    );
+  }
+
   return (
     <>
       <HeaderDash texto="Panel del usuario" className="container-fluid" />
@@ -116,8 +128,12 @@ function Dashboard(onLoginComplete, token) {
                 </div>
               </div>
               <div className="d-grid gap-2 col-6 mx-auto">
-                <button type="submit" className="btn btn-primary btn-lg">
-                  Guardar
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-lg"
+                  afterSubmit={() => toDashboard(true)}
+                >
+                  Registra mi cuenta
                 </button>
               </div>
             </form>

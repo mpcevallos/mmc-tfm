@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import "./src/assets/styles/styles.css";
 
 //Componentes importados
@@ -16,6 +16,7 @@ function App({ buscarservicio }) {
   console.log("Token:", token);
   const [searchTerm, setSearchTerm] = useState([]);
   const [speciality, setSpeciality] = useState([]);
+  // const [handleLogin, setHandleLogin] = React.useState(false);
 
   useEffect(() => {
     // Verifica si hay un token almacenado en el localStorage al cargar el componente
@@ -25,6 +26,10 @@ function App({ buscarservicio }) {
       setToken(storedToken);
     }
   }, []);
+
+  if (onLoginComplete === true) {
+    return <Dashboard />;
+  }
 
   // Carga los datos de las especialidades desde el backend al iniciar la aplicación y actualiza el estado de searchTerm al hacerlo
 
