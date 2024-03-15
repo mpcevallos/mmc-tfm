@@ -1,0 +1,19 @@
+{
+  "specialities": [
+    {
+      "imgSrc": "../src/assets/img/especialidades/Especialidad1.png",
+      "title": "Odontología",
+      "description": "Some quick example text for Especialidad 1."
+    },
+    {
+      "imgSrc": "../src/assets/img/especialidades/Especialidad2.png",
+      "title": "Cardiología",
+      "description": "Some quick example text for Especialidad 2."
+    },
+    {
+      "imgSrc": "../src/assets/img/especialidades/Especialidad3.png",
+      "title": "Nutrición y dietetica",
+      "description": "Some quick example text for Especialidad 3."
+    }
+  ]
+}
