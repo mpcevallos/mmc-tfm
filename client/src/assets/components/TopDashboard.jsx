@@ -47,6 +47,18 @@ function TopDashboard() {
                   </Link>
                 </div>
                 <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
+                  <Link to="/citas">
+                    <Icon
+                      icon="carbon:reminder-medical"
+                      width="70"
+                      height="70"
+                      style={{ color: "#ffffff" }}
+                    />
+                    <br />
+                    Agendar cita
+                  </Link>
+                </div>
+                <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
                   <Link to="/searchservices">
                     <Icon
                       icon="tabler:heart-search"

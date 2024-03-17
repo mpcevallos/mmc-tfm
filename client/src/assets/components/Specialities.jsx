@@ -43,8 +43,8 @@ function Specialities({ search }) {
                 speciality.description.toLowerCase().includes(lowerSearch))
             );
           })
-          .map((speciality, i) => (
-            <div key={i} className="col col-lg-4 col-md-4">
+          .map((speciality) => (
+            <div key={speciality.id} className="col col-lg-4 col-md-4">
               <div className="card m-3">
                 <img
                   src={speciality.imgSrc}

@@ -14,16 +14,14 @@ function Login({ onLoginComplete }) {
 
   const apiUrl = "http://localhost:3000/api/usuario/login";
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // Verifica si hay un token almacenado en el localStorage al cargar el componente
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
-      // Si hay un token, establece el estado del token
-      setToken(storedToken);
+      navigate("/dashboard", { replace: true });
     }
-  }, []);
-
-  const navigate = useNavigate();
+  }, [navigate]);
 
   const loginHandler = async () => {
     try {

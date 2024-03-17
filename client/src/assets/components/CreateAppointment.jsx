@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HeaderDash from "./HeaderDash";
 import { useStore } from "../context/store";
+import useToken from "/src/assets/components/utilities/useToken.js";
+import { postCita } from "../../../services/post-cita";
 
 function CreateAppointment({ onLoginComplete }) {
+  const token = useToken();
   const [id, setId] = useState("");
   const [usuario, setUsuario] = useState("");
   const [consultorio, setConsultorio] = useState("");
@@ -15,7 +18,7 @@ function CreateAppointment({ onLoginComplete }) {
   const [error, setError] = useState(false);
   const [citas, setCitas] = useState([]);
 
-  const apiUrl = "http://localhost:3000/api/cita";
+  const apiUrl = "http://localhost:3000/api/cita/";
 
   const handleClear = () => {
     setId("");
@@ -28,39 +31,26 @@ function CreateAppointment({ onLoginComplete }) {
     setEstatus("");
   };
 
+  const postData = {
+    id,
+    usuario,
+    consultorio,
+    especialidad,
+    fecha,
+    hora,
+  };
+
+  const navigate = useNavigate();
+
   const CreateAppointmentHandler = async () => {
-    const data = {
-      id,
-      usuario,
-      consultorio,
-      especialidad,
-      fecha,
-      hora,
-      registro,
-      estatus,
-    };
-
+    console.log({ postData });
     try {
-      let token = localStorage.getItem("token");
-      console.log("Token:", token);
-
-      //token = token.replace(/^"|"$/g, "");
-
-      if (!token) {
-        throw new Error("No hay token en el localStorage");
-      }
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          usuario,
-          consultorio,
-          especialidad,
-          fecha,
-          hora,
-        }),
+        body: JSON.stringify(postData),
       });
 
       if (response.ok) {
@@ -68,12 +58,22 @@ function CreateAppointment({ onLoginComplete }) {
         console.log({ data });
         setError(false);
         const token = data.token;
+        // Almacena el token en el localStorage
         localStorage.setItem("token", token);
-        //onLoginComplete(false, token);
+
+        // Actualiza el estado del token
+        //setToken(token);
+
+        // Redirige a la página principal FUNCIONANDO...
+        navigate("/dashboard", {
+          replace: true,
+          state: {
+            message: "Credenciales correctas. Por favor, inicia sesión.",
+          },
+        });
       } else {
-        console.error("Error:", response.status);
+        console.log(response.status);
         setError(true);
-        //onLoginComplete(true, null);
 
         // Mostrar una alerta
         alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
@@ -81,6 +81,8 @@ function CreateAppointment({ onLoginComplete }) {
     } catch (error) {
       console.error("Error:", error);
       setError(true);
+
+      // Mostrar una alerta
       console.error(
         "Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde."
       );
@@ -107,7 +109,7 @@ function CreateAppointment({ onLoginComplete }) {
               CreateAppointmentHandler();
             }}
           >
-            <label htmlFor="search-date" className="mt-3">
+            <label htmlFor="id" className="mt-3">
               ID:&nbsp;
             </label>
             <div className="mb-3 p-3">
@@ -120,7 +122,7 @@ function CreateAppointment({ onLoginComplete }) {
                 onChange={(e) => setId(e.target.value)}
               />
             </div>
-            <label htmlFor="search-date" className="mt-3">
+            <label htmlFor="usuario" className="mt-3">
               Usuario:&nbsp;
             </label>
             <div className="mb-3 p-3">
@@ -133,7 +135,7 @@ function CreateAppointment({ onLoginComplete }) {
                 onChange={(e) => setUsuario(e.target.value)}
               />
             </div>
-            <label htmlFor="search-date" className="mt-3">
+            <label htmlFor="searchdatetime" className="mt-3">
               Fecha y Hora:&nbsp;
             </label>
             <div className="mb-3 p-3">
@@ -143,7 +145,7 @@ function CreateAppointment({ onLoginComplete }) {
                 name="agendar-cita"
                 min="2024-04-01"
                 max="2024-12-31"
-                time="10:00"
+                value="2024-04-01T10:00"
                 className="form-select ml-2"
               />
             </div>

@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import HeaderDash from "./HeaderDash";
 import { Icon } from "@iconify-icon/react";
 import { userEdit } from "../../../services/user-edit";
+import useToken from "/src/assets/components/utilities/useToken.js";
 
 function Dashboard({ onLoginComplete }) {
+  const token = useToken();
   const [toDashboard, setToDashboard] = React.useState(false);
-  const [token, setToken] = useState(true);
   const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -16,11 +17,11 @@ function Dashboard({ onLoginComplete }) {
   const [error, setError] = useState(false);
 
   const patchData = {
-    id,
-    nombre,
-    apellido,
-    email,
-    password,
+    id: 4,
+    nombre: "Jorge",
+    apellido: "Campos",
+    email: "jorge.campos@gmail.com",
+    password: "123",
   };
 
   const navigate = useNavigate();
@@ -32,49 +33,44 @@ function Dashboard({ onLoginComplete }) {
     setPassword("");
   };
 
-  const apiUrl = "http://localhost:3000/api/usuario/";
+  const apiUrl = `http://localhost:3000/api/usuario/`;
+  //const apiUrl = `http://localhost:3000/api/usuario/${id}`;
 
   useEffect(() => {
-    // Verifica si hay un token almacenado en el localStorage al cargar el componente
     const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      // Si hay un token, establece el estado del token
-      setToken(storedToken);
-    }
+    if (storedToken);
   }, []);
 
   const CreateUserEditHandler = async () => {
-    //setNombre("Marco");
     console.log({ patchData });
     try {
-      let token = localStorage.getItem("token");
-
-      //token = token.replace(/^"|"$/g, "");
-
       if (!token) {
         throw new Error("No hay token en el localStorage");
       }
+      console.log("Token utilizado:", token);
       const response = await fetch(apiUrl, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Incluye el token aquí
         },
         body: JSON.stringify(patchData),
       });
+
+      //token = token.replace(/^"|"$/g, "");
 
       if (response.ok) {
         const data = await response.json();
         console.log({ data });
         setError(false);
-        const token = data.token;
-        // Almacena el token en el localStorage
-        localStorage.setItem("token", token);
+        //const token = data.token;
+        //localStorage.setItem("token", token);
 
         //Actualiza el estado del token
-        setToken(token);
+        //setToken(token);
 
         // Después de obtener el token, obtén los posts
-        const posts = await userEdit(); // Esto asume que userEdit es una función que obtiene los usuarios
+        const posts = await userEdit(id, nombre, apellido, email, password); // Esto asume que userEdit es una función que obtiene los usuarios
         console.log("Usuario editado:", posts);
 
         // Llama a la función onLoginComplete con el token almacenado en el localStorage y el estado de error falso

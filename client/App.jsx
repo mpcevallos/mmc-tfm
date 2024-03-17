@@ -1,5 +1,11 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useLocalStorage } from "react-use";
 
@@ -21,22 +27,34 @@ import Footer from "./src/assets/components/Footer.jsx";
 import NotFound from "./src/assets/components/NotFound.jsx";
 import ScrollUpButton from "./src/assets/components/utilities/ScrollUpButton.jsx";
 
+function MainContent() {
+  const location = useLocation();
+  const [search, setSearchTerm] = useState("");
+
+  return (
+    <>
+      {location.pathname !== "/especialidades" && (
+        <>
+          <SearchServices searchTerm={search} setSearchTerm={setSearchTerm} />
+          <Specialities search={search} />
+        </>
+      )}
+    </>
+  );
+}
+
 function App() {
   const [token, setToken] = useState(null);
   console.log("Token:", token);
-  const [search, setSearch] = useState("");
+  const [search, setSearchTerm] = useState("");
   const [speciality, setSpeciality] = useState("");
   const [user, setUser] = useLocalStorage("token");
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
 
-  // const [handleLogin, setHandleLogin] = React.useState(false);
-
   useEffect(() => {
-    // Verifica si hay un token almacenado en el localStorage al cargar el componente
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
-      // Si hay un token, establece el estado del token
       setToken(storedToken);
     }
   }, []);
@@ -45,14 +63,6 @@ function App() {
   //   return <Dashboard />;
   // }
 
-  const handleSearch = (event) => {
-    const filtered = speciality.filter((speciality) =>
-      speciality.title.toLowerCase().includes(event.toLowerCase())
-    );
-    setSearch(filteredSpecialities);
-  };
-
-  // Función para manejar el cierre de sesión y actualizar el estado del token al hacerlo
   function onLogOut() {
     localStorage.removeItem("token");
     window.location.reload();
@@ -86,11 +96,9 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-
       <Routes>
         <Route index element={<Login />} />
         <Route path="/login" element={<Login />} />
-
         <Route element={<PublicRouter />}>
           <Route
             path="/login"
@@ -105,35 +113,13 @@ function App() {
           />
           <Route path="/register" element={<UserRegister />} />
         </Route>
-
         <Route element={<PrivateRouter />}>
-          <Route path="/dashboard" element={<Dashboard token={token} />} />
-          <Route path="/register" element={<UserRegister />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/citas" element={<CreateAppointment />} />
           <Route path="/consultarcitas" element={<GetAppointment />} />
         </Route>
-
         <Route path="/quienes-somos" element={<AboutUs />} />
         <Route path="/preguntas-frecuentes" element={<Faqs />} />
-        <Route
-          path="/searchservices"
-          element={<SearchServices search={search} setSearch={setSearch} />}
-        />
-        <Route
-          path="/servicios"
-          element={
-            <SearchServices
-              search={search}
-              setSearch={setSearch}
-              handleSearchChange={handleSearch}
-            />
-          }
-        />
-        <Route
-          path="/especialidades"
-          element={<Specialities search={search} />}
-        />
-
         <Route
           path="/notfound"
           element={
@@ -148,6 +134,7 @@ function App() {
         />
       </Routes>
       <div>&nbsp;&nbsp;</div>
+      <SearchServices search={search} setSearchTerm={setSearchTerm} />
       <Specialities search={search} />
       <Footer />
       <ScrollUpButton />

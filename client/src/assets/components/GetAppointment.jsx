@@ -64,6 +64,7 @@ function GetAppointment() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Asegúrate de incluir el token aquí
         },
         body: JSON.stringify({
           usuario,

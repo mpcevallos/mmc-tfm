@@ -11,14 +11,15 @@ export async function userEdit(id, nombre, apellido, email, password) {
     }
 
     const patchData = {
-      id,
       nombre,
       apellido,
       email,
       password,
     };
 
-    const patchResponse = await fetch("http://localhost:3000/api/usuario", {
+    const apiUrl = `http://localhost:3000/api/usuario/`;
+
+    const patchResponse = await fetch(apiUrl, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -49,17 +50,14 @@ export async function userEdit(id, nombre, apellido, email, password) {
         token = access_token;
 
         // Después de refrescar el token, intenta nuevamente la solicitud PATCH
-        const retryPatchResponse = await fetch(
-          "http://localhost:3000/api/usuario",
-          {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify(patchData),
-          }
-        );
+        const retryPatchResponse = await fetch(apiUrl, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(patchData),
+        });
 
         if (retryPatchResponse.ok) {
           const updatedData = await retryPatchResponse.json();
