@@ -60,7 +60,7 @@ export async function register() {
       throw new Error("Error en la solicitud GET");
     }
   } catch (error) {
-    console.error("Error en la función services:", error);
+    console.error("Error en la función register:", error);
     throw error;
   }
 }
@@ -69,7 +69,7 @@ export function getUser() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
-        name: "John",
+        name: "Usuario",
       });
     }, 5000);
   });

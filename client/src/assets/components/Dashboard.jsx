@@ -1,20 +1,114 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import HeaderDash from "./HeaderDash";
 import { Icon } from "@iconify-icon/react";
-import { Link } from "react-router-dom";
+import { userEdit } from "../../../services/user-edit";
 
-function Dashboard(onLoginComplete, token) {
+function Dashboard({ onLoginComplete }) {
   const [toDashboard, setToDashboard] = React.useState(false);
+  const [token, setToken] = useState(true);
+  const [id, setId] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
-  if (toDashboard) {
-    return (
-      <Navigate
-        to="/dashboard"
-        onLoginComplete={onLoginComplete}
-        token={token}
-      />
-    );
-  }
+  const patchData = {
+    id,
+    nombre,
+    apellido,
+    email,
+    password,
+  };
+
+  const navigate = useNavigate();
+
+  const handleClear = () => {
+    setNombre("");
+    setApellido("");
+    setEmail("");
+    setPassword("");
+  };
+
+  const apiUrl = "http://localhost:3000/api/usuario/";
+
+  useEffect(() => {
+    // Verifica si hay un token almacenado en el localStorage al cargar el componente
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      // Si hay un token, establece el estado del token
+      setToken(storedToken);
+    }
+  }, []);
+
+  const CreateUserEditHandler = async () => {
+    //setNombre("Marco");
+    console.log({ patchData });
+    try {
+      let token = localStorage.getItem("token");
+
+      //token = token.replace(/^"|"$/g, "");
+
+      if (!token) {
+        throw new Error("No hay token en el localStorage");
+      }
+      const response = await fetch(apiUrl, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(patchData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log({ data });
+        setError(false);
+        const token = data.token;
+        // Almacena el token en el localStorage
+        localStorage.setItem("token", token);
+
+        //Actualiza el estado del token
+        setToken(token);
+
+        // Después de obtener el token, obtén los posts
+        const posts = await userEdit(); // Esto asume que userEdit es una función que obtiene los usuarios
+        console.log("Usuario editado:", posts);
+
+        // Llama a la función onLoginComplete con el token almacenado en el localStorage y el estado de error falso
+        //y el token obtenido al iniciar sesión correctamente
+        if (typeof onLoginComplete === "function") {
+          onLoginComplete(false, token);
+        }
+
+        // Redirige a la página principal FUNCIONANDO...
+        navigate("/dashboard", {
+          replace: true,
+          state: {
+            logged: true,
+            token: token,
+          },
+        });
+      } else {
+        console.log(response.status);
+        setError(true);
+
+        // Mostrar una alerta
+        alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+      }
+      // Cierre de catch para el error de redirección a la página principal
+    } catch (error) {
+      console.error("Error:", error);
+      setError(true);
+
+      // Mostrar una alerta de error
+      console.error(
+        "Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo."
+      );
+    }
+  };
 
   const data = [
     {
@@ -56,9 +150,13 @@ function Dashboard(onLoginComplete, token) {
                 />
                 &nbsp;&nbsp;Mis Citas
               </h3>
-              <p className="poppins-regular">Ver citas</p>
-              <p>Agendar cita</p>
-              <p>Cancelar cita</p>
+              <Link to="/consultarcitas" className="poppins-regular">
+                Consultar citas
+              </Link>
+              <br />
+              <Link to="/citas" className="poppins-regular">
+                Agendar cita
+              </Link>
             </ul>
             <ul className="mt-5">
               <h3 className="poppins-medium poppins-sm-semibold mt-5">
@@ -94,50 +192,59 @@ function Dashboard(onLoginComplete, token) {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
+                CreateUserEditHandler();
               }}
             >
               <div className="mb-3 p-3">
                 <input
                   type="name"
-                  class="form-control"
+                  className="form-control"
                   id="inputname"
                   aria-describedby="nameHelp"
-                  placeholder="Nombre"
+                  placeholder="Nombre*"
                   required
+                  onChange={(e) => setNombre(e.target.value)}
+                  value={nombre}
                 ></input>
               </div>
               <div className="mb-3 p-3">
                 <input
                   type="lastname"
-                  class="form-control"
+                  className="form-control"
                   id="inputlastname"
                   aria-describedby="lastnameHelp"
-                  placeholder="Apellido"
+                  placeholder="Apellido*"
                   required
+                  onChange={(e) => setApellido(e.target.value)}
+                  value={apellido}
                 ></input>
               </div>
               <div className="mb-3 p-3">
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="inputemail"
                   aria-describedby="emailHelp"
-                  placeholder="Ingresa tu correo"
+                  placeholder="Ingresa tu correo*"
                   required
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                 ></input>
               </div>
               <div className="mb-3 p-3">
-                <label for="inputpassword" class="form-label">
+                <label htmlFor="inputpassword" className="form-label">
                   Contraseña
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="inputpassword"
                   placeholder="*****"
                   required
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                 ></input>
-                <div class="form-check">
+                <div className="form-check">
                   <input
                     className="form-check-input"
                     type="checkbox"
@@ -146,45 +253,30 @@ function Dashboard(onLoginComplete, token) {
 
                   <label
                     className="form-check-label font-gray forgot-password"
-                    for="flexCheckDefault"
+                    htmlFor="flexCheckDefault"
                   >
                     He leído y acepto los términos y condiciones *
                   </label>
                 </div>
               </div>
-              <div className="d-grid gap-2 col-6 mx-auto">
+              <div className="d-grid gap-2 col-6 mx-auto w-50">
                 <button
                   type="submit"
-                  className="btn btn-primary btn-lg"
-                  onSubmit={() => toDashboard(true)}
+                  className="container-fluid btn btn-primary w-50"
+                  onSubmit={CreateUserEditHandler}
                 >
-                  Registra mi cuenta
+                  Guardar
+                </button>
+                <button
+                  className="container-fluid btn btn-outline-primary w-50 "
+                  onClick={handleClear}
+                >
+                  Limpiar
                 </button>
               </div>
             </form>
           </div>
         </div>
-      </div>
-
-      <div>
-        <tbody>
-          <tr>
-            <th>Usuario:</th>
-            <th>Especialidad:</th>
-            <th>Consultorio:</th>
-            <th>Hospital:</th>
-            <th>Fecha:</th>
-          </tr>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td>{item.usuario}</td>
-              <td>{item.especialidad}</td>
-              <td>{item.consultorio}</td>
-              <td>{item.hospital}</td>
-              <td>{item.fecha}</td>
-            </tr>
-          ))}
-        </tbody>
       </div>
     </>
   );

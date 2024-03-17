@@ -10,7 +10,7 @@ function HeaderDash(props) {
           <div class="row">
             <div class="col w-50 mt-5">
               <i class="bi bi-person-circle poppins-regular font-white mb-5 h3 font-gray">
-                &nbsp;&nbsp;{props.texto}
+                &nbsp;&nbsp;{props?.texto}
               </i>
             </div>
             <div class="col w-50"></div>
@@ -25,10 +25,10 @@ function HeaderDash(props) {
               <p className="poppins-regular color-text-mint float-inline-start title bold">
                 Jorge Campos
               </p>
-              <p className="poppins-regular font-gray float-inline-start">
-                <strong>Email:</strong>
-                <p>jcampos@gmail.com</p>
-              </p>
+              <div className="poppins-regular font-gray float-inline-start">
+                <strong>Email: </strong>
+                <span>jcampos@gmail.com</span>
+              </div>
             </div>
           </div>
         </div>

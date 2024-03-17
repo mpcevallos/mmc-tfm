@@ -1,29 +1,35 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useLocalStorage } from "react-use";
 
 //Componentes importados
 import Login from "./src/assets/components/Login.jsx";
 import Specialities from "./src/assets/components/Specialities.jsx";
-import Appointment from "./src/assets/components/Appointment.jsx";
+import CreateAppointment from "./src/assets/components/CreateAppointment.jsx";
+import GetAppointment from "./src/assets/components/GetAppointment.jsx";
 import SearchServices from "./src/assets/components/SearchServices.jsx";
-import Header from "./src/assets/components/Header";
+//import Header from "./src/assets/components/Header";
 import UserRegister from "./src/assets/components/UserRegister";
 import Dashboard from "./src/assets/components/Dashboard";
 import PrivateRouter from "./src/assets/components/utilities/PrivateRouter";
+import PublicRouter from "./src/assets/components/utilities/PublicRouter";
 import NavBar from "./src/assets/components/NavBar.jsx";
 import AboutUs from "./src/assets/components/AboutUs.jsx";
 import Faqs from "./src/assets/components/Faqs.jsx";
 import Footer from "./src/assets/components/Footer.jsx";
 import NotFound from "./src/assets/components/NotFound.jsx";
+import ScrollUpButton from "./src/assets/components/utilities/ScrollUpButton.jsx";
 
-function App({ buscarservicio }) {
+function App() {
   const [token, setToken] = useState(null);
   console.log("Token:", token);
-  const [searchTerm, setSearchTerm] = useState([]);
-  const [speciality, setSpeciality] = useState([]);
+  const [search, setSearch] = useState("");
+  const [speciality, setSpeciality] = useState("");
   const [user, setUser] = useLocalStorage("token");
+  const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+
   // const [handleLogin, setHandleLogin] = React.useState(false);
 
   useEffect(() => {
@@ -39,13 +45,11 @@ function App({ buscarservicio }) {
   //   return <Dashboard />;
   // }
 
-  // Carga los datos de las especialidades desde el backend al iniciar la aplicación y actualiza el estado de searchTerm al hacerlo
-
   const handleSearch = (event) => {
     const filtered = speciality.filter((speciality) =>
       speciality.title.toLowerCase().includes(event.toLowerCase())
     );
-    setSearchTerm(filteredSpecialities);
+    setSearch(filteredSpecialities);
   };
 
   // Función para manejar el cierre de sesión y actualizar el estado del token al hacerlo
@@ -79,24 +83,6 @@ function App({ buscarservicio }) {
       .catch((error) => console.error("Error:", error));
   };
 
-  const specialitiesData = [
-    {
-      imgSrc: "../src/assets/img/especialidades/Especialidad1.png",
-      title: "Especialidad 1",
-      description: "Some quick example text for Especialidad 1.",
-    },
-    {
-      imgSrc: "../src/assets/img/especialidades/Especialidad2.png",
-      title: "Especialidad 2",
-      description: "Some quick example text for Especialidad 2.",
-    },
-    {
-      imgSrc: "../src/assets/img/especialidades/Especialidad3.png",
-      title: "Especialidad 3",
-      description: "Some quick example text for Especialidad 3.",
-    },
-  ];
-
   return (
     <BrowserRouter>
       <NavBar />
@@ -104,16 +90,50 @@ function App({ buscarservicio }) {
       <Routes>
         <Route index element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<UserRegister />} />
-        // Ruta privada a Dashboard
-        <Route element={<PrivateRouter token={!!token} />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/agendacita" element={<Appointment />} />
+
+        <Route element={<PublicRouter />}>
+          <Route
+            path="/login"
+            element={
+              <Login
+                onLoginComplete={onLoginComplete}
+                token={token}
+                onLogOut={onLogOut}
+                handleLogin={handleLogin}
+              />
+            }
+          />
+          <Route path="/register" element={<UserRegister />} />
         </Route>
+
+        <Route element={<PrivateRouter />}>
+          <Route path="/dashboard" element={<Dashboard token={token} />} />
+          <Route path="/register" element={<UserRegister />} />
+          <Route path="/citas" element={<CreateAppointment />} />
+          <Route path="/consultarcitas" element={<GetAppointment />} />
+        </Route>
+
         <Route path="/quienes-somos" element={<AboutUs />} />
         <Route path="/preguntas-frecuentes" element={<Faqs />} />
-        <Route path="/especialidades" element={<Specialities />} />
-        <Route path="/searchservices" element={<SearchServices />} />
+        <Route
+          path="/searchservices"
+          element={<SearchServices search={search} setSearch={setSearch} />}
+        />
+        <Route
+          path="/servicios"
+          element={
+            <SearchServices
+              search={search}
+              setSearch={setSearch}
+              handleSearchChange={handleSearch}
+            />
+          }
+        />
+        <Route
+          path="/especialidades"
+          element={<Specialities search={search} />}
+        />
+
         <Route
           path="/notfound"
           element={
@@ -128,7 +148,9 @@ function App({ buscarservicio }) {
         />
       </Routes>
       <div>&nbsp;&nbsp;</div>
+      <Specialities search={search} />
       <Footer />
+      <ScrollUpButton />
     </BrowserRouter>
   );
 }

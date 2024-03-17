@@ -1,56 +1,71 @@
 import React from "react";
-import { useState } from "react";
-import { Icon } from "@iconify-icon/react";
-import SpecialityCard from "./SpecialityCard";
-import SearchServices from "./SearchServices";
+import { useState, useEffect } from "react";
+import { getSpecialities } from "../../../services/service.js";
+import SearchServices from "./SearchServices.jsx";
 
-function Specialities() {
-  const [searchTerm, setSearchTerm] = useState("");
+function Specialities({ search }) {
+  const [loading, setLoading] = useState(true);
+  const [specialities, setSpecialities] = useState(null);
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  useEffect(() => {
+    getSpecialities()
+      .then((specialitiesData) => {
+        setSpecialities(specialitiesData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching specialities:", error);
+        setLoading(false);
+      });
+  }, []);
 
-  const specialitiesData = [
-    {
-      imgSrc: "../src/assets/img/especialidades/Especialidad1.png",
-      title: "Especialidad 1",
-      description: "Some quick example text for Especialidad 1.",
-    },
-    {
-      imgSrc: "../src/assets/img/especialidades/Especialidad2.png",
-      title: "Especialidad 2",
-      description: "Some quick example text for Especialidad 2.",
-    },
-    {
-      imgSrc: "../src/assets/img/especialidades/Especialidad3.png",
-      title: "Especialidad 3",
-      description: "Some quick example text for Especialidad 3.",
-    },
-  ];
-
-  const filteredSpecialities = specialitiesData.filter(
-    (speciality) =>
-      speciality.title &&
-      speciality.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  if (loading) {
+    return (
+      <div className="p-5 text-center">
+        <div className="spinner-border text-primary" role="status" />
+        <h4 className="text-center text-secondary">Loading...</h4>
+      </div>
+    );
+  }
 
   return (
-    <div className="container">
-      <SearchServices
-        searchTerm={searchTerm}
-        onSearchChange={handleSearchChange}
-      />
-      <div className="container text-center">
-        <div className="row">
-          {filteredSpecialities.map((speciality, index) => (
-            <div key={index} className="col-12 col-md-4">
-              <SpecialityCard {...speciality} />
+    <>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {specialities
+          .filter((speciality) => {
+            const lowerSearch = search.toLowerCase();
+            return (
+              (speciality.imgSrc &&
+                speciality.imgSrc.toLowerCase().includes(lowerSearch)) ||
+              (speciality.title &&
+                speciality.title.toLowerCase().includes(lowerSearch)) ||
+              (speciality.description &&
+                speciality.description.toLowerCase().includes(lowerSearch))
+            );
+          })
+          .map((speciality, i) => (
+            <div key={i} className="col col-lg-4 col-md-4">
+              <div className="card m-3">
+                <img
+                  src={speciality.imgSrc}
+                  className="card-img-top"
+                  alt={speciality.title}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{speciality.title}</h5>
+                  <p className="card-text">{speciality.description}</p>
+                  <button
+                    href="#"
+                    className="btn btn-primary rounded-pill btn-lg"
+                  >
+                    Ver más...
+                  </button>
+                </div>
+              </div>
             </div>
           ))}
-        </div>
       </div>
-    </div>
+    </>
   );
 }
 

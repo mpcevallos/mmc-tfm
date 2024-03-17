@@ -105,6 +105,8 @@ a {
 
 .form-control {
   padding: 1rem;
+  width: 93%;
+  margin: auto;
 }
 
 .shadowtop {
@@ -147,7 +149,7 @@ a {
 
 .small-icons-footer {
   font-size: 36px;
-  color: #FFF;
+  color: #fff;
 }
 
 .form-check-input {
@@ -239,4 +241,41 @@ a {
   --bs-btn-disabled-color: #16bfa3;
   --bs-btn-disabled-bg: #16bfa3;
   --bs-btn-disabled-border-color: #16bfa3;
+}
+
+.img-home {
+  max-width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+/* If the screen size is 934px wide or less, hide the element */
+@media screen and (max-width: 955px) {
+  .img-home {
+    display: none;
+  }
+}
+
+.btn-scrollup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border-color: rgba(23, 84, 66, 0.254);
+  background-color: rgba(12, 200, 156, 0.702);
+  transition: all 0.3s ease-out;
+  color: #ffffff;
+}
+
+.btn-scrollup:hover {
+  background-color: #d0d0d07f;
+  border-color: rgba(23, 84, 66, 0.254);
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
 }

@@ -35,7 +35,7 @@ function TopDashboard() {
                   </Link>
                 </div>
                 <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
-                  <Link to="/agendacita">
+                  <Link to="/consultarcitas">
                     <Icon
                       icon="carbon:reminder-medical"
                       width="70"
@@ -43,11 +43,11 @@ function TopDashboard() {
                       style={{ color: "#ffffff" }}
                     />
                     <br />
-                    Agendar Citas
+                    Consultar citas
                   </Link>
                 </div>
                 <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
-                  <Link to="/especialidades">
+                  <Link to="/searchservices">
                     <Icon
                       icon="tabler:heart-search"
                       width="70"

@@ -1,3 +1,4 @@
+import { sleep } from "../src/assets/helpers/functions";
 export async function services() {
   try {
     let token = localStorage.getItem("token");
@@ -7,13 +8,17 @@ export async function services() {
     if (!token) {
       throw new Error("No hay token en el localStorage");
     }
-
+    //await sleep(2000);
+    console.log(token);
     const url = "http://localhost:3000/api/usuario";
     const response = await fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
+        ok: true,
+        status: 200,
+        statusText: "OK",
       },
     });
 

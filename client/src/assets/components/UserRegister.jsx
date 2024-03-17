@@ -2,9 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Icon } from "@iconify-icon/react";
-import "/src/assets/styles/styles.css";
 import { register } from "../../../services/user-services";
-import Footer from "./Footer";
 
 function UserRegister() {
   const [token, setToken] = useState(null);
@@ -14,6 +12,8 @@ function UserRegister() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
+  const navigate = useNavigate();
+
   const apiUrl = "http://localhost:3000/api/usuario/";
 
   const postData = {
@@ -22,8 +22,6 @@ function UserRegister() {
     email,
     password,
   };
-
-  const navigate = useNavigate();
 
   const CreateUserHandler = async () => {
     //setNombre("Marco");
@@ -46,14 +44,13 @@ function UserRegister() {
         localStorage.setItem("token", token);
 
         // Actualiza el estado del token
-        http: setToken(token);
+        setToken(token);
 
         // Redirige a la página principal FUNCIONANDO...
         navigate("/dashboard", {
           replace: true,
           state: {
-            logged: true,
-            token: token,
+            message: "Credenciales correctas. Por favor, inicia sesión.",
           },
         });
       } else {
@@ -96,7 +93,7 @@ function UserRegister() {
           <div className="mb-3 p-3">
             <input
               type="name"
-              class="form-control"
+              className="form-control"
               id="inputname"
               aria-describedby="nameHelp"
               placeholder="Nombre*"
@@ -108,7 +105,7 @@ function UserRegister() {
           <div className="mb-3 p-3">
             <input
               type="lastname"
-              class="form-control"
+              className="form-control"
               id="inputlastname"
               aria-describedby="lastnameHelp"
               placeholder="Apellido*"
@@ -120,10 +117,10 @@ function UserRegister() {
           <div className="mb-3 p-3">
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="inputemail"
               aria-describedby="emailHelp"
-              placeholder="Ingresa tu correo"
+              placeholder="Ingresa tu correo*"
               required
               onChange={(e) => setEmail(e.target.value)}
               value={email}
@@ -132,14 +129,14 @@ function UserRegister() {
           <div className="mb-3 p-3">
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="inputpassword"
-              placeholder="Contraseña"
+              placeholder="Contraseña*"
               required
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             ></input>
-            <div class="form-check">
+            <div className="form-check">
               <input
                 className="form-check-input"
                 type="checkbox"
@@ -149,7 +146,7 @@ function UserRegister() {
 
               <label
                 className="form-check-label font-white forgot-password"
-                for="flexCheckDefault"
+                htmlFor="flexCheckDefault"
               >
                 He leído y acepto los términos y condiciones *
               </label>

@@ -1,20 +1,24 @@
 import React from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import Login from "./Login";
-import Faqs from "./Faqs";
+import { Link, useLocation } from "react-router-dom";
+// import Login from "./Login";
+// import Faqs from "./Faqs";
+import { useStore } from "../context/store";
 
 function NavBar() {
-  const { state } = useLocation();
-  console.log(state);
-  const navigate = useNavigate();
+  const location = useLocation();
+  const { user, logout } = useStore();
 
-  const onLogOut = () => {
-    localStorage.removeItem("token");
-    navigate("/login", { replace: true });
-  };
+  // const { state } = useLocation();
+  // console.log(state);
+  // const navigate = useNavigate();
 
-  // Verificar si hay un token presente
-  const isAuthenticated = !!localStorage.getItem("token");
+  // const onLogOut = () => {
+  //   localStorage.removeItem("token");
+  //   navigate("/login", { replace: true });
+  // };
+
+  // // Verificar si hay un token presente
+  // const isAuthenticated = !!localStorage.getItem("token");
 
   return (
     <>
@@ -71,9 +75,19 @@ function NavBar() {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link active" to="/dashboard">
-                        Mi Cuenta
-                      </Link>
+                      {location.pathname !== "/login" ? (
+                        <Link className="nav-link" to="/dashboard">
+                          Mi Cuenta
+                        </Link>
+                      ) : (
+                        <a
+                          className="nav-link"
+                          href="#"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          Mi Cuenta
+                        </a>
+                      )}
                     </li>
                   </ul>
                 </div>
@@ -87,7 +101,7 @@ function NavBar() {
                     <div className="col">
                       <div className="col d-flex justify-content-end mb-3">
                         {/* Botón de inicio de sesión condicional */}
-                        {!isAuthenticated && (
+                        {!user && (
                           <Link
                             className="btn btn-primary btn-md mx-2 rounded-pill"
                             to="/login"
@@ -103,32 +117,38 @@ function NavBar() {
                           </Link>
                         )}
                         {/* Botón de cerrar sesión */}
-                        <button
-                          className="btn btn-secondary btn-md mx-2 rounded-pill"
-                          onClick={onLogOut}
-                          style={{ display: "flex", alignItems: "center" }}
-                        >
-                          <span
-                            type="button"
-                            className="btn-close btn-close-white"
-                            aria-label="Close"
-                          ></span>
-                          &nbsp;Cerrar Sesión
-                        </button>
-                        {/* Icono de cuenta */}
-                        <Link to="/dashboard">
-                          <iconify-icon
-                            icon="mdi:account-circle"
-                            width="35"
-                            height="35"
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              color: "#5C5C5C",
-                              marginLeft: "10px",
-                            }}
-                          ></iconify-icon>
-                        </Link>
+                        {user && (
+                          <>
+                            <button
+                              type="button"
+                              className="btn btn-secondary btn-md mx-2 rounded-pill"
+                              onClick={logout}
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              <span
+                                type="button"
+                                className="btn-close btn-close-white"
+                                aria-label="Close"
+                              ></span>
+                              &nbsp;Cerrar Sesión
+                            </button>
+
+                            {/* Icono de cuenta */}
+                            <Link to="/dashboard">
+                              <iconify-icon
+                                icon="mdi:account-circle"
+                                width="35"
+                                height="35"
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  color: "#5C5C5C",
+                                  marginLeft: "10px",
+                                }}
+                              ></iconify-icon>
+                            </Link>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -138,7 +158,6 @@ function NavBar() {
           </div>
         </nav>
       </div>
-      <Outlet />
     </>
   );
 }
