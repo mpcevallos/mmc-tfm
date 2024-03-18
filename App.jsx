@@ -112,8 +112,8 @@ function App() {
               />
             }
           />
-          <Route path="/searchservices" element={<SearchServices />} />
           <Route path="/register" element={<UserRegister />} />
+          <Route path="/searchservices" element={<SearchServices />} />
         </Route>
         <Route element={<PrivateRouter />}>
           <Route path="/dashboard" element={<Dashboard />} />

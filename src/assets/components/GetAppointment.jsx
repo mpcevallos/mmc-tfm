@@ -166,7 +166,6 @@ function GetAppointment() {
         <table className="table table-striped table-hover mx-auto">
           <thead>
             <tr>
-              <th>Usuario:</th>
               <th>Especialidad:</th>
               <th>Consultorio:</th>
               <th>Hospital:</th>
@@ -179,7 +178,6 @@ function GetAppointment() {
           <tbody>
             {data.map((item, index) => (
               <tr key={index}>
-                <td>{item.usuario}</td>
                 <td>{item.especialidad}</td>
                 <td>{item.consultorio}</td>
                 <td>{item.hospital}</td>

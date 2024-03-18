@@ -32,6 +32,7 @@ function Login({ onLoginComplete }) {
         },
         body: JSON.stringify({ email, password }),
       });
+
       // Si la respuesta es exitosa, obtiene el token de la respuesta y lo almacena en el localStorage
       if (response.ok) {
         // Si la respuesta es exitosa, obtiene el token de la respuesta y lo almacena en el localStorage
@@ -39,13 +40,27 @@ function Login({ onLoginComplete }) {
         setError(false);
         const token = data.token;
         console.log({ token });
+        console.log({ data });
         localStorage.setItem("token", token);
         localStorage.setItem("userId", JSON.stringify(data.userId));
         localStorage.setItem("usuario", JSON.stringify(data.usuario));
+        localStorage.setItem(
+          "avatar",
+          JSON.stringify(data.avatarImg).replace('"', "").replace('"', "")
+        );
+        JSON.stringify(data.avatarImg).replace('"', "").replace('"', "");
+        localStorage.setItem(
+          "name",
+          JSON.stringify(data.usuario).replace('"', "").replace('"', "")
+        );
+        localStorage.setItem(
+          "correo",
+          JSON.stringify(email).replace('"', "").replace('"', "")
+        );
 
         // Actualiza el estado del token
         //const urlCita =
-          //"http://localhost:3000/api/cita/" + localStorage.getItem("user");
+        //"http://localhost:3000/api/cita/" + localStorage.getItem("user");
         //console.log(urlCita);
 
         setToken(token);
@@ -61,7 +76,7 @@ function Login({ onLoginComplete }) {
             token: token,
           },
         });
-       // onResetForm();
+        // onResetForm();
       } else {
         console.log(response.status);
         //setError(true);

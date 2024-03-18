@@ -68,6 +68,7 @@ function CreateAppointment({ onLoginComplete }) {
 
       if (response.ok) {
         const data = await response.json();
+        alert("Su cita fue creada con exito");
         console.log({ data });
         setError(false);
         navigate("/consultarcitas", {

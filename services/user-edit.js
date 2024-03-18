@@ -1,4 +1,4 @@
-export async function userEdit(id, nombre, apellido, email, password) {
+export async function userEdit(id, nombre, apellido, email, password, avatar) {
   try {
     let token = localStorage.getItem("token");
 
@@ -14,6 +14,7 @@ export async function userEdit(id, nombre, apellido, email, password) {
       apellido,
       email,
       password,
+      avatar,
     };
 
     const apiUrl = `http://localhost:3000/api/usuario/`;

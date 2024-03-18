@@ -1,7 +1,16 @@
 import React from "react";
 import TopDashboard from "./TopDashboard";
+import useAvatar from "/src/assets/components/utilities/useAvatar.js";
+import useName from "/src/assets/components/utilities/useName.js";
+import useEmail from "/src/assets/components/utilities/useEmail.js";
 
 function HeaderDash(props) {
+  const avatar = useAvatar();
+  const name = useName();
+  const correo = useEmail();
+  console.log({ avatar });
+  console.log({ name });
+  console.log({ correo });
   return (
     <>
       <TopDashboard />
@@ -16,18 +25,21 @@ function HeaderDash(props) {
             <div class="col w-50"></div>
             <div class="col">
               <img
-                src="../src/assets/img/avatar/profile.png"
+                src={`../src/assets/img/avatar/${avatar}`}
                 alt="Avatar"
                 style={{ width: "140px", height: "140px", marginLeft: "100px" }}
               />
             </div>
             <div class="col float-end mt-5">
-              <p className="poppins-regular color-text-mint float-inline-start title bold">
-                Jorge Campos
-              </p>
+              <div>
+                <p className="poppins-regular color-text-mint float-inline-start title bold">
+                  {name}
+                </p>
+              </div>
+              <br />
               <div className="poppins-regular font-gray float-inline-start">
-                <strong>Email: </strong>
-                <span>jcampos@gmail.com</span>
+                <strong>Email: {correo}</strong>
+                <p> </p>
               </div>
             </div>
           </div>
