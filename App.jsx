@@ -30,10 +30,11 @@ import ScrollUpButton from "./src/assets/components/utilities/ScrollUpButton.jsx
 function MainContent() {
   const location = useLocation();
   const [search, setSearchTerm] = useState("");
+  //const [specialities, setSpecialities] = useState();
 
   return (
     <>
-      {location.pathname !== "/especialidades" && (
+      {location.pathname !== "/searchservices" && (
         <>
           <SearchServices searchTerm={search} setSearchTerm={setSearchTerm} />
           <Specialities search={search} />
@@ -111,6 +112,7 @@ function App() {
               />
             }
           />
+          <Route path="/searchservices" element={<SearchServices />} />
           <Route path="/register" element={<UserRegister />} />
         </Route>
         <Route element={<PrivateRouter />}>
@@ -120,12 +122,6 @@ function App() {
         </Route>
         <Route path="/quienes-somos" element={<AboutUs />} />
         <Route path="/preguntas-frecuentes" element={<Faqs />} />
-        <Route
-          path="/notfound"
-          element={
-            <NotFound texto="Error 404 (Page Not Found) de página no encontrada" />
-          }
-        />
         <Route
           path="*"
           element={

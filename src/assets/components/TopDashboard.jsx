@@ -35,18 +35,6 @@ function TopDashboard() {
                   </Link>
                 </div>
                 <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
-                  <Link to="/consultarcitas">
-                    <Icon
-                      icon="carbon:reminder-medical"
-                      width="70"
-                      height="70"
-                      style={{ color: "#ffffff" }}
-                    />
-                    <br />
-                    Consultar citas
-                  </Link>
-                </div>
-                <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
                   <Link to="/citas">
                     <Icon
                       icon="carbon:reminder-medical"
@@ -55,19 +43,19 @@ function TopDashboard() {
                       style={{ color: "#ffffff" }}
                     />
                     <br />
-                    Agendar cita
+                    Agenda cita
                   </Link>
                 </div>
                 <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
-                  <Link to="/searchservices">
+                  <Link to="/consultarcitas">
                     <Icon
-                      icon="tabler:heart-search"
+                      icon="icon-park-outline:medical-files"
                       width="70"
                       height="70"
                       style={{ color: "#ffffff" }}
                     />
                     <br />
-                    Especialidades
+                    Consultar citas
                   </Link>
                 </div>
               </div>
@@ -80,3 +68,15 @@ function TopDashboard() {
 }
 
 export default TopDashboard;
+
+/*<div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
+                  <Link to="/searchservices">
+                    <Icon
+                      icon="tabler:heart-search"
+                      width="70"
+                      height="70"
+                      style={{ color: "#ffffff" }}
+                    />
+                    <br />
+                    Especialidades
+                  </Link>*/

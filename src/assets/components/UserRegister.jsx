@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Icon } from "@iconify-icon/react";
-import { register } from "../../../services/user-services";
+//import { register } from "../../../services/user-services";
 
 function UserRegister() {
   const [token, setToken] = useState(null);
@@ -40,7 +40,6 @@ function UserRegister() {
         console.log({ data });
         setError(false);
         const token = data.token;
-        // Almacena el token en el localStorage
         localStorage.setItem("token", token);
 
         // Actualiza el estado del token

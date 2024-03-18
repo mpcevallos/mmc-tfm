@@ -68,9 +68,7 @@ export async function register() {
 export function getUser() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({
-        name: "Usuario",
-      });
+      resolve({});
     }, 5000);
   });
 }

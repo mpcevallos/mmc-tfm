@@ -7,7 +7,7 @@ export async function services() {
     if (!token) {
       throw new Error("No hay token en el localStorage");
     }
-    //await sleep(2000);
+
     console.log(token);
     const url = "http://localhost:3000/api/usuario";
     const response = await fetch(url, {
@@ -72,9 +72,7 @@ export async function services() {
 export function getUser() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({
-        name: "John",
-      });
+      resolve({});
     }, 5000);
   });
 }

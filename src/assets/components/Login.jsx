@@ -38,65 +38,46 @@ function Login({ onLoginComplete }) {
         const data = await response.json();
         setError(false);
         const token = data.token;
-        // Almacena el token en el localStorage
+        console.log({ token });
         localStorage.setItem("token", token);
-        // Almacena el usuario en el localStorage
-        localStorage.setItem("user", JSON.stringify(data.success));
-        // Almacena el mensaje de error en el localStorage
-        localStorage.setItem("message", JSON.stringify(data.message));
+        localStorage.setItem("userId", JSON.stringify(data.userId));
+        localStorage.setItem("usuario", JSON.stringify(data.usuario));
 
         // Actualiza el estado del token
-        const urlCita =
-          "http://localhost:3000/api/cita/" + localStorage.getItem("user");
-        console.log(urlCita);
-        // Actualiza el estado del token
+        //const urlCita =
+          //"http://localhost:3000/api/cita/" + localStorage.getItem("user");
+        //console.log(urlCita);
+
         setToken(token);
-
-        // Después de obtener el token, obtén los posts
         const posts = await services(); // Esto asume que getPost devuelve los posts
         console.log("Posts obtenidos:", posts);
-
-        // Llama a la función onLoginComplete con el token almacenado en el localStorage y el estado de error falso
-        //y el token obtenido al iniciar sesión correctamente
         if (typeof onLoginComplete === "function") {
           onLoginComplete(false, token);
         }
-
-        // Redirige a la página principal FUNCIONANDO...
         navigate("/dashboard", {
           replace: true,
           state: {
-            logged: true,
+            logged: false,
             token: token,
           },
         });
-        // Si la respuesta no es exitosa, muestra un mensaje de error y actualiza el estado de error
-        // onResetForm();
+       // onResetForm();
       } else {
         console.log(response.status);
         //setError(true);
-
-        // Muestra mensajes de error específicos según la respuesta del servidor
         const errorData = await response.json();
         console.error("Error:", errorData.message);
         {
           setError("¡Error al iniciar sesión! Verifique sus credenciales.");
-          setSuccessMessage(null);
+          //setSuccessMessage(null);
         }
-
         //onLoginComplete(true, null);
       }
-
-      // Si la respuesta no es exitosa, muestra un mensaje de error y actualiza el estado de error
     } catch (error) {
       console.error("Error:", error);
       //setError(true);
       //onLoginComplete(true, null);
-
-      // Mostrar una alerta
       console.alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
-
-      // Muestra un mensaje de error genérico
       console.error(
         "Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde."
       );

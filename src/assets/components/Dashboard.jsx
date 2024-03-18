@@ -5,23 +5,34 @@ import HeaderDash from "./HeaderDash";
 import { Icon } from "@iconify-icon/react";
 import { userEdit } from "../../../services/user-edit";
 import useToken from "/src/assets/components/utilities/useToken.js";
+import useUserId from "/src/assets/components/utilities/useUserId.js";
 
 function Dashboard({ onLoginComplete }) {
   const token = useToken();
-  const [toDashboard, setToDashboard] = React.useState(false);
-  const [id, setId] = useState("");
+  const id = useUserId();
+  console.log(id);
+  //const [id, setId] = useState("");
+  //const [token, setToken] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const patchData = {
+  /*const patchData = {
     id: 4,
     nombre: "Jorge",
     apellido: "Campos",
     email: "jorge.campos@gmail.com",
     password: "123",
+  };*/
+
+  const patchData = {
+    id,
+    nombre,
+    apellido,
+    email,
+    password,
   };
 
   const navigate = useNavigate();
@@ -69,8 +80,8 @@ function Dashboard({ onLoginComplete }) {
         //Actualiza el estado del token
         //setToken(token);
 
-        // Después de obtener el token, obtén los posts
-        const posts = await userEdit(id, nombre, apellido, email, password); // Esto asume que userEdit es una función que obtiene los usuarios
+        // Después de obtener el token, obtén el usuario
+        const posts = await userEdit(id, nombre, apellido, email, password);
         console.log("Usuario editado:", posts);
 
         // Llama a la función onLoginComplete con el token almacenado en el localStorage y el estado de error falso

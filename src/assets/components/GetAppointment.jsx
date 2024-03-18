@@ -5,14 +5,16 @@ import HeaderDash from "./HeaderDash.jsx";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../context/store";
+import useToken from "/src/assets/components/utilities/useToken.js";
+import useUserId from "/src/assets/components/utilities/useUserId.js";
 
 function GetAppointment() {
-  const [token, setToken] = useState(true);
-  const [id, setId] = useState("");
+  const token = useToken();
+  const id = useUserId();
   const [error, setError] = useState(false);
-  const [citas, setCitas] = useState([]);
+  const [data, setData] = useState([]);
 
-  const data = [
+  /*const data = [
     {
       id: 1,
       usuario: 14,
@@ -46,46 +48,40 @@ function GetAppointment() {
       registro: "2024-03-15T06:46:21.000Z",
       estatus: "Cita activa",
     },
-  ];
+  ];*/
 
-  const apiUrl = "http://localhost:3000/api/cita/";
+  const apiUrl = `http://localhost:3000/api/cita/${id}`;
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken);
+  }, []);
 
   const getAppointment = async () => {
     try {
       // Definir las variables con los valores correspondientes
-      const usuario = 14;
-      const consultorio = 2;
-      const especialidad = 3;
-      const fecha = "2024-04-01";
-      const hora = "10:00:00";
-      const estatus = 1;
+      //const usuario = 14;
+      //const consultorio = 2;
+      //const especialidad = 3;
+      //const fecha = "2024-04-01";
+      //const hora = "10:00:00";
+      //const estatus = 1;
 
       const response = await fetch(apiUrl, {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`, // Asegúrate de incluir el token aquí
         },
-        body: JSON.stringify({
-          usuario,
-          consultorio,
-          especialidad,
-          fecha,
-          hora,
-          estatus,
-        }),
       });
 
       // Verifica si la respuesta es exitosa
       if (response.ok) {
         // Si es exitosa, obtiene los datos de la respuesta
         const data = await response.json();
+        setData(data.data);
+        console.log({ data });
         setError(false);
-        const token = data.token;
-        // Almacena el token en el localStorage
-        localStorage.setItem("token", token);
-        // Luego de obtener el token, podrías realizar otras acciones si es necesario
-        // Por ejemplo, redirigir al usuario a otra página
       } else {
         // Si la respuesta no es exitosa, establece el estado de error en true
         setError(true);
@@ -124,7 +120,6 @@ function GetAppointment() {
               name="agendar-cita"
               min="2024-04-01"
               max="2024-12-31"
-              time="10:00"
               className="form-select ml-2"
             />
           </div>
@@ -167,8 +162,8 @@ function GetAppointment() {
         </div>
       </div>
 
-      <div class="container">
-        <table class="table table-striped table-hover mx-auto">
+      <div className="container">
+        <table className="table table-striped table-hover mx-auto">
           <thead>
             <tr>
               <th>Usuario:</th>

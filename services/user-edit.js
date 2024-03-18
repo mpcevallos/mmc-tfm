@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom";
-
 export async function userEdit(id, nombre, apellido, email, password) {
   try {
     let token = localStorage.getItem("token");
@@ -11,6 +9,7 @@ export async function userEdit(id, nombre, apellido, email, password) {
     }
 
     const patchData = {
+      id,
       nombre,
       apellido,
       email,

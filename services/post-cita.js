@@ -1,13 +1,34 @@
 export async function postCita() {
+  //console.log({ id });
   try {
     let token = localStorage.getItem("token");
+    console.log({ token });
 
     if (!token) {
       throw new Error("No hay token en el localStorage");
     }
 
-    const url = "http://localhost:3000/api/cita";
-    const response = await fetch(url, {
+    //const url = `http://localhost:3000/api/cita/${id}`; //Devuelve el listado de citas con ID
+    const apiUrl = "http://localhost:3000/api/cita";
+
+    const responseCita = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (responseCita.ok) {
+      return await responseCita.json();
+    } else if (responseCita.status === 401) {
+      console.log();
+    }
+  } catch {
+    console.log();
+  }
+}
+
+/*const response = await fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +40,7 @@ export async function postCita() {
       return await response.json();
     } else if (response.status === 401) {
       const refreshResponse = await fetch(
-        "http://localhost:3000/api/refresh-token",
+        "https://authentication-server.com/refresh",
         {
           method: "POST",
           headers: {
@@ -64,17 +85,15 @@ export async function postCita() {
 export function getUser() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({
-        name: "Jorge Campos",
-      });
+      resolve({});
     }, 5000);
   });
 }
 
-export async function getUsers() {
+export async function getUsers(id) {
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch("http://localhost:3000/api/cita", {
+    const response = await fetch(`http://localhost:3000/api/cita/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -92,4 +111,4 @@ export async function getUsers() {
     console.error("Error en la función getUsers:", error);
     throw error;
   }
-}
+}*/
