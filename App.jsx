@@ -100,6 +100,7 @@ function App() {
       <Routes>
         <Route index element={<Login />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<UserRegister />} />
         <Route element={<PublicRouter />}>
           <Route
             path="/login"
@@ -112,7 +113,6 @@ function App() {
               />
             }
           />
-          <Route path="/register" element={<UserRegister />} />
           <Route path="/searchservices" element={<SearchServices />} />
         </Route>
         <Route element={<PrivateRouter />}>
@@ -120,6 +120,7 @@ function App() {
           <Route path="/citas" element={<CreateAppointment />} />
           <Route path="/consultarcitas" element={<GetAppointment />} />
         </Route>
+
         <Route path="/quienes-somos" element={<AboutUs />} />
         <Route path="/preguntas-frecuentes" element={<Faqs />} />
         <Route

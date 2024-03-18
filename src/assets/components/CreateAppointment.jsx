@@ -114,7 +114,7 @@ function CreateAppointment({ onLoginComplete }) {
                 CreateAppointmentHandler();
               }}
             >
-              <label htmlFor="searchdatetime" className="mt-3">
+              <label htmlFor="searchdatetime" className="mt-3  poppins-medium">
                 Fecha y Hora:&nbsp;
               </label>
               <div className="mb-3 p-3">
@@ -138,7 +138,7 @@ function CreateAppointment({ onLoginComplete }) {
                   }}
                 />
               </div>
-              <label htmlFor="search-place" className="mt-3">
+              <label htmlFor="search-place" className="mt-3  poppins-medium">
                 Consultorio:&nbsp;
               </label>
               <div className="mb-3 p-3">
@@ -158,7 +158,10 @@ function CreateAppointment({ onLoginComplete }) {
                 </select>
               </div>
               <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
-                <label htmlFor="especialidad-select" className="mt-3">
+                <label
+                  htmlFor="especialidad-select"
+                  className="mt-3  poppins-medium"
+                >
                   Especialidad:&nbsp;
                 </label>
                 <div className="mb-3 p-3">
@@ -180,23 +183,23 @@ function CreateAppointment({ onLoginComplete }) {
               </div>
 
               <div className="mb-3 p-3">
-                <div className="col mx-auto">
+                <div className="container fluid d-flex justify-content-center mx-auto">
                   &nbsp;&nbsp;&nbsp;{" "}
                   <button
                     type="submit"
-                    className="btn btn-primary"
-                    style={{ width: "600px" }}
+                    className="btn btn-primary btn-md mx-2 rounded-pill"
+                    style={{ width: "607px" }}
                   >
                     Enviar
                   </button>
                 </div>
                 <div className="mb-3 p-3">
-                  <div className="col mx-auto">
+                  <div className="container fluid d-flex justify-content-center mx-auto">
                     <button
-                      type="submit"
-                      className="btn btn-outline-primary"
+                      type="button"
+                      className="btn btn-outline-primary btn-md mx-2 rounded-pill"
                       onClick={handleClear}
-                      style={{ width: "600px" }}
+                      style={{ width: "604px" }}
                     >
                       Limpiar
                     </button>

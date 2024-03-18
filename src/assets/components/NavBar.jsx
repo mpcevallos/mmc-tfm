@@ -6,7 +6,9 @@ import { useStore } from "../context/store";
 
 function NavBar() {
   const location = useLocation();
+  const { token } = useStore();
   const { user, logout } = useStore();
+  console.log({ user });
 
   // const { state } = useLocation();
   // console.log(state);
@@ -65,9 +67,16 @@ function NavBar() {
                       </Link>
                     </li>
                     <li className="nav-item ">
-                      <Link to="/register" className="nav-link active">
-                        Registrate Gratis
-                      </Link>
+                      {!token && (
+                        <Link className="nav-link active" to="/register">
+                          Registrate Gratis
+                        </Link>
+                      )}
+                      {user && location.pathname !== "/dashboard" && (
+                        <Link className="nav-link active" to="/dashboard">
+                          Registrate Gratis
+                        </Link>
+                      )}
                     </li>
                     <li className="nav-link">
                       <Link to="/preguntas-frecuentes">
@@ -101,7 +110,7 @@ function NavBar() {
                     <div className="col">
                       <div className="col d-flex justify-content-end mb-3">
                         {/* Botón de inicio de sesión condicional */}
-                        {!user && (
+                        {!token && (
                           <Link
                             className="btn btn-primary btn-md mx-2 rounded-pill"
                             to="/login"
@@ -117,7 +126,7 @@ function NavBar() {
                           </Link>
                         )}
                         {/* Botón de cerrar sesión */}
-                        {user && (
+                        {token && (
                           <>
                             <button
                               type="button"

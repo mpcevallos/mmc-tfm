@@ -103,7 +103,7 @@ function GetAppointment() {
             <div className="d-flex align-items-center">
               <Icon icon="tabler:calendar-month" className="small-mint-icons" />
               <span
-                className="ml-2 "
+                className="ml-2  poppins-medium"
                 style={{ fontSize: "18px", fontWeight: "bold" }}
               >
                 &nbsp;&nbsp;Consultar citas
@@ -111,7 +111,7 @@ function GetAppointment() {
             </div>
           </div>
           <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
-            <label htmlFor="search-date" className="mt-3">
+            <label htmlFor="search-date" className="mt-3  poppins-medium">
               Fecha y Hora:&nbsp;
             </label>
             <input
@@ -126,7 +126,9 @@ function GetAppointment() {
         </div>
         <div className="row mt-3">
           <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
-            <label htmlFor="place-select">Lugar:&nbsp;</label>
+            <label htmlFor="place-select" className=" poppins-medium">
+              Consultorio:&nbsp;
+            </label>
             <select name="place" id="place-select" className="form-select ml-2">
               <option value="select-place">Seleccionar</option>
               <option value={1}>Consultorio 1</option>
@@ -135,16 +137,18 @@ function GetAppointment() {
             </select>
           </div>
           <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
-            <label htmlFor="especialidad-select">Especialidad:&nbsp;</label>
+            <label htmlFor="especialidad-select" className=" poppins-medium">
+              Especialidad:&nbsp;
+            </label>
             <select
               name="especialidades"
               id="especialidad-select"
               className="form-select ml-2"
             >
               <option value="">Seleccionar</option>
-              <option value={1}>Cardiologia</option>
-              <option value={2}>Alergologia</option>
-              <option value={3}>Cirugia General</option>
+              <option value={1}>Endocrinología</option>
+              <option value={2}>Medicina Interna</option>
+              <option value={3}>Gastroenterología</option>
             </select>
           </div>
         </div>
@@ -155,7 +159,7 @@ function GetAppointment() {
               type="submit"
               onClick={getAppointment}
             >
-              <i className="bi bi-search"></i>
+              <i className="bi bi-search  poppins-medium"></i>
               &nbsp;&nbsp;<b>Buscar</b>
             </button>
           </div>
@@ -163,7 +167,7 @@ function GetAppointment() {
       </div>
 
       <div className="container">
-        <table className="table table-striped table-hover mx-auto">
+        <table className="table table-striped table-hover mx-auto  poppins-medium">
           <thead>
             <tr>
               <th>Especialidad:</th>

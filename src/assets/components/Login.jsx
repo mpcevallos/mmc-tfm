@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function Login({ onLoginComplete }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const { setUser, setToken } = useStore();
-  const [token, setToken] = useState(null);
+  const { setUser, setToken } = useStore();
+  //const [token, setToken] = useState(null);
   const [error, setError] = useState(false);
   // const [successMessage, setSuccessMessage] = useState(null);
 
@@ -156,7 +156,7 @@ function Login({ onLoginComplete }) {
                 placeholder="******"
               />
               <div className="mb-2 forgot-password mt-3 font-white">
-                <Link to="/dashboard">Olvidaste tu contraseña?</Link>
+                <Link to="/preguntas-frecuentes">Olvidaste tu contraseña?</Link>
               </div>
             </div>
             <div className="d-grid gap-2 col-6 mx-auto">

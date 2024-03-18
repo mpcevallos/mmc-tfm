@@ -215,6 +215,9 @@ function Dashboard({ onLoginComplete }) {
               }}
             >
               <div className="mb-3 p-3">
+                <label htmlFor="inputname" className="form-label">
+                  Nombre:
+                </label>
                 <input
                   type="name"
                   className="form-control"
@@ -227,6 +230,9 @@ function Dashboard({ onLoginComplete }) {
                 ></input>
               </div>
               <div className="mb-3 p-3">
+                <label htmlFor="inputlastname" className="form-label">
+                  Apellido:
+                </label>
                 <input
                   type="lastname"
                   className="form-control"
@@ -239,6 +245,9 @@ function Dashboard({ onLoginComplete }) {
                 ></input>
               </div>
               <div className="mb-3 p-3">
+                <label htmlFor="inputemail" className="form-label">
+                  Correo electrónico:
+                </label>
                 <input
                   type="email"
                   className="form-control"
@@ -264,6 +273,9 @@ function Dashboard({ onLoginComplete }) {
                   value={password}
                 ></input>
                 <div className="mb-3 p-3">
+                  <label htmlFor="inputavatar" className="form-label">
+                    Selecciona un avatar:
+                  </label>
                   <select
                     name="avatar"
                     id="avatar"
@@ -298,13 +310,14 @@ function Dashboard({ onLoginComplete }) {
               <div className="d-grid gap-2 col-6 mx-auto w-50">
                 <button
                   type="submit"
-                  className="container-fluid btn btn-primary w-50"
+                  className="container-fluid btn btn-primary w-50 rounded-pill"
                   onSubmit={CreateUserEditHandler}
                 >
                   Guardar
                 </button>
                 <button
-                  className="container-fluid btn btn-outline-primary w-50 "
+                  type="button"
+                  className="container-fluid btn btn-outline-primary w-50 rounded-pill"
                   onClick={handleClear}
                 >
                   Limpiar
