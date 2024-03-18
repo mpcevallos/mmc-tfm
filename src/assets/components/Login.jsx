@@ -84,6 +84,7 @@ function Login({ onLoginComplete }) {
         console.error("Error:", errorData.message);
         {
           setError("¡Error al iniciar sesión! Verifique sus credenciales.");
+
           //setSuccessMessage(null);
         }
         //onLoginComplete(true, null);
@@ -92,7 +93,7 @@ function Login({ onLoginComplete }) {
       console.error("Error:", error);
       //setError(true);
       //onLoginComplete(true, null);
-      console.alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+      alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
       console.error(
         "Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde."
       );
