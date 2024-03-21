@@ -158,10 +158,7 @@ function CreateAppointment({ onLoginComplete }) {
                 </select>
               </div>
               <div className="col-md-12 col-lg-6 poppins-medium d-flex align-items-center">
-                <label
-                  htmlFor="especialidad-select"
-                  className="mt-3  poppins-medium"
-                >
+                <label htmlFor="especialidad" className="mt-3  poppins-medium">
                   Especialidad:&nbsp;
                 </label>
                 <div className="mb-3 p-3">

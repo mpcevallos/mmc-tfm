@@ -3,7 +3,7 @@ import Header from "./Header";
 
 function Faqs(props) {
   return (
-<>
+    <>
       <Header texto="Preguntas Frecuentes" />
       <div className="container mt-5 w-100 mx-auto mb-5">
         <div className="accordion" id="accordionExample">
@@ -27,8 +27,8 @@ function Faqs(props) {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                Para crear una cuenta, ve a la página de registro y sigue los
-                pasos proporcionados.
+                Para crear una cuenta, puedes ir a la página de Registro y luego
+                llenar los campos solicitados. Luego, puedes iniciar sesión.
               </div>
             </div>
           </div>
@@ -52,9 +52,9 @@ function Faqs(props) {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                Puedes restablecer tu contraseña desde la página de inicio de
-                sesión. Haz clic en "¿Olvidaste tu contraseña?" y sigue las
-                instrucciones.
+                Puedes restablecer tu contraseña en tu dashboard de usuario
+                (despues de iniciar sesión). Puedes hacerlo en la sección de Mi
+                Cuenta. Luego vuelve a iniciar sesión.
               </div>
             </div>
           </div>
@@ -79,8 +79,8 @@ function Faqs(props) {
             >
               <div className="accordion-body">
                 Puedes ponerte en contacto con nuestro equipo de soporte a
-                través del formulario de contacto en la sección de Soporte de
-                nuestro sitio web.
+                través del correo electrónico:{" "}
+                <b>soporte@metabolicmedicalcenter.med.cl</b>
               </div>
             </div>
           </div>

@@ -25,10 +25,10 @@ function AboutUs() {
             </strong>
             . <br />
             <br />
-            La <strong>Dra. Sofía López</strong>, psicóloga especializada
-            ofrece apoyo emocional a los pacientes con desafíos metabólicos.
-            Ayuda a manejar el estrés, la ansiedad y a comprender la relación
-            entre la salud mental y la alimentación. <br />
+            La <strong>Dra. Sofía López</strong>, psicóloga especializada ofrece
+            apoyo emocional a los pacientes con desafíos metabólicos. Ayuda a
+            manejar el estrés, la ansiedad y a comprender la relación entre la
+            salud mental y la alimentación. <br />
             <br />
             Su trabajo complementa la atención médica, asegurando un enfoque
             integral para el bienestar de los pacientes. También hay una

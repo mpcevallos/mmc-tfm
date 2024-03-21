@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useStore } from "../context/store";
 import { services } from "../../../services/post-services";
 import { Link } from "react-router-dom";
+import CardSpecialist from "./CardSpecialist";
 
 function Login({ onLoginComplete }) {
   const [email, setEmail] = useState("");
@@ -196,6 +197,7 @@ function Login({ onLoginComplete }) {
         </div>
         <div>&nbsp; &nbsp;</div>
       </div>
+      <CardSpecialist />
     </>
   );
 }
