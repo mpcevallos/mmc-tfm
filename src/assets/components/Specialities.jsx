@@ -56,9 +56,9 @@ function Specialities({ search }) {
                   <p className="card-text">{speciality.description}</p>
                   <button
                     href="#"
-                    className="btn btn-primary rounded-pill btn-lg"
+                    className="btn btn-primary rounded-pill btn-md"
                   >
-                    Ver más...
+                    Saber más...
                   </button>
                 </div>
               </div>

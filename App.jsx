@@ -26,7 +26,6 @@ import Faqs from "./src/assets/components/Faqs.jsx";
 import Footer from "./src/assets/components/Footer.jsx";
 import NotFound from "./src/assets/components/NotFound.jsx";
 import ScrollUpButton from "./src/assets/components/utilities/ScrollUpButton.jsx";
-
 function MainContent() {
   const location = useLocation();
   const [search, setSearchTerm] = useState("");
@@ -34,12 +33,10 @@ function MainContent() {
 
   return (
     <>
-      {location.pathname !== "/searchservices" && (
-        <>
-          <SearchServices searchTerm={search} setSearchTerm={setSearchTerm} />
-          <Specialities search={search} />
-        </>
+      {location.pathname !== "/especialidades" && (
+        <SearchServices search={search} setSearchTerm={setSearchTerm} />
       )}
+      <Especialidades search={search} />
     </>
   );
 }
@@ -131,8 +128,12 @@ function App() {
         />
       </Routes>
       <div>&nbsp;&nbsp;</div>
-      <SearchServices search={search} setSearchTerm={setSearchTerm} />
-      <Specialities search={search} />
+      <>
+        {location.pathname !== "/especialidades" && (
+          <SearchServices search={search} setSearchTerm={setSearchTerm} />
+        )}
+        <Specialities search={search} />
+      </>
       <Footer />
       <ScrollUpButton />
     </BrowserRouter>

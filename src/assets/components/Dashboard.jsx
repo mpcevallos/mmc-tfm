@@ -188,7 +188,7 @@ function Dashboard({ onLoginComplete }) {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especialidades
               </h3>
               <br />
-              {/* <Link to="/especialidades">Ver especialidades</Link> */}
+              <Link to="/">Ver especialidades</Link>
               <p className="poppins-semibold red">Proximamente</p>
             </ul>
             <h3 className="poppins-medium poppins-sm-semibold mt-5">

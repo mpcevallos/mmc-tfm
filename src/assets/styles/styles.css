@@ -289,23 +289,23 @@ a {
 }
 
 .gradient-background {
-  background: rgb(255, 231, 203);
+  background: rgb(255, 236, 213);
   background: -moz-radial-gradient(
     circle,
-    rgba(255, 231, 203, 1) 0%,
-    rgba(255, 188, 115, 1) 100%
+    rgba(255, 236, 213, 1) 0%,
+    rgba(255, 208, 158, 1) 100%
   );
   background: -webkit-radial-gradient(
     circle,
-    rgba(255, 231, 203, 1) 0%,
-    rgba(255, 188, 115, 1) 100%
+    rgba(255, 236, 213, 1) 0%,
+    rgba(255, 208, 158, 1) 100%
   );
   background: radial-gradient(
     circle,
-    rgba(255, 231, 203, 1) 0%,
-    rgba(255, 188, 115, 1) 100%
+    rgba(255, 236, 213, 1) 0%,
+    rgba(255, 208, 158, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffe7cb", endColorstr="#ffbc73", GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffecd5",endColorstr="#ffd09e",GradientType=1);
 }
 
 .shadow {
@@ -314,4 +314,21 @@ a {
 
 .yellow {
   color: #ffbb0e;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1f2937; /* Fondo oscuro */
+}
+
+.loading-content {
+  text-align: center;
+}
+
+/* Ajustar color del spinner para modo oscuro */
+.spinner-border {
+  color: #ffffff; /* Color blanco */
 }

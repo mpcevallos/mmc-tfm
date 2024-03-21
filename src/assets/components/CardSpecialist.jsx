@@ -7,7 +7,7 @@ const CardSpecialist = () => {
         <div className="col" style={{ width: "600px" }}>
           <div className="card mb-3" style={{ maxWidth: "400px" }}>
             <div className="row g-0">
-              <div className="col-md-4 gradient-background">
+              <div className="col-md-4 gradient-background rounded">
                 <img
                   src="/src/assets/img/avatar/doctor1.png"
                   className="img-fluid rounded-start p-3 mt-5"
@@ -16,7 +16,7 @@ const CardSpecialist = () => {
               </div>
               <div className="col-md-8 mt-3">
                 <div
-                  className="card-body shadow mt-3"
+                  className="card-body shadow mt-3 rounded-3"
                   style={{ height: "200px" }}
                 >
                   <h5 className="card-title poppins-semibold">
@@ -36,7 +36,10 @@ const CardSpecialist = () => {
         <div className="col md-6" style={{ width: "600px" }}>
           <div className="card mb-3" style={{ maxWidth: "400px" }}>
             <div className="row g-0">
-              <div className="col-md-4" style={{ backgroundColor: "#ACFBE1" }}>
+              <div
+                className="col-md-4 rounded"
+                style={{ backgroundColor: "#ACFBE1" }}
+              >
                 <img
                   src="/src/assets/img/avatar/doctor2.png"
                   className="img-fluid rounded-start p-3 mt-5"
@@ -45,7 +48,7 @@ const CardSpecialist = () => {
               </div>
               <div className="col-md-8 mt-3">
                 <div
-                  className="card-body shadow mt-3"
+                  className="card-body shadow mt-3 rounded-3"
                   style={{ height: "200px" }}
                 >
                   <h5 className="card-title poppins-semibold">
@@ -67,7 +70,7 @@ const CardSpecialist = () => {
         <div className="col">
           <div className="card mb-3" style={{ maxWidth: "600px" }}>
             <div className="row g-0">
-              <div className="col-md-4 gradient-background">
+              <div className="col-md-4 gradient-background rounded">
                 <img
                   src="/src/assets/img/avatar/doctor3.png"
                   className="img-fluid rounded-start p-3 mt-5"
@@ -76,7 +79,7 @@ const CardSpecialist = () => {
               </div>
               <div className="col-md-8 mt-3">
                 <div
-                  className="card-body shadow mt-3"
+                  className="card-body shadow mt-3 rounded-3"
                   style={{ height: "200px" }}
                 >
                   <h5 className="card-title poppins-semibold">
