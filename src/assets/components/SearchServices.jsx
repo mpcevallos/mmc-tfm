@@ -9,6 +9,7 @@ function SearchServices({ searchTerm, setSearchTerm }) {
   };
   return (
     <>
+      
       <div className="container-fluid bg-search col-12 mt-5 mb-5 pt-5">
         <div className="d-flex container-fluid col-12 mt-4 pb-5 align-items-center justify-content-center">
           <div

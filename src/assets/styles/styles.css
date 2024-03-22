@@ -332,3 +332,7 @@ a {
 .spinner-border {
   color: #ffffff; /* Color blanco */
 }
+
+.text-align-middle {
+  vertical-align: middle;
+}
