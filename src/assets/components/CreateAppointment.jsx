@@ -11,6 +11,7 @@ function CreateAppointment({ onLoginComplete }) {
   const token = useToken();
   const id = useUserId();
   //const [id, setId] = useState("");
+
   const [usuario, setUsuario] = useState("");
   const [consultorio, setConsultorio] = useState("");
   const [especialidad, setEspecialidad] = useState("");

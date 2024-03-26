@@ -163,11 +163,14 @@ function UserRegister() {
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
             <button
-              type="submit"
+              type="button"
               className="btn btn-primary btn-lg"
-              onSubmit={CreateUserHandler}
+              onClick={() => {
+                CreateUserHandler();
+                handleClear();
+              }}
             >
-              Registra mi cuenta
+              Registrar cuenta
             </button>
           </div>
           <div className="font-white pt-3"></div>

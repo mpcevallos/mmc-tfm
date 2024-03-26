@@ -48,6 +48,7 @@ function Dashboard({ onLoginComplete }) {
     setApellido("");
     setEmail("");
     setPassword("");
+    setNewAvatar(null);
   };
 
   const apiUrl = `http://localhost:3000/api/usuario/`;
