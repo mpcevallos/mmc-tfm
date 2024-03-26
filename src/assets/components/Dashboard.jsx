@@ -290,6 +290,8 @@ function Dashboard({ onLoginComplete }) {
                     <option value={2}>Avatar Mujer</option>
                     <option value={3}>Avatar Hombre</option>
                     <option value={4}>Avatar Gato</option>
+                    <option value={5}>Avatar Perro</option>
+                    <option value={6}>Avatar Foto</option>
                   </select>
                 </div>
                 <div className="form-check">

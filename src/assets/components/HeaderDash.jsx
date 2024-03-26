@@ -27,7 +27,7 @@ function HeaderDash(props) {
               <img
                 src={`../src/assets/img/avatar/${avatar}`}
                 alt="Avatar"
-                style={{ width: "140px", height: "140px", marginLeft: "100px" }}
+                style={{ width: "110px", height: "110px", marginLeft: "100px" }}
               />
             </div>
             <div class="col float-end mt-5">

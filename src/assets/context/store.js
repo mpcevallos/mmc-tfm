@@ -13,6 +13,18 @@ export const useStore = create((set) => ({
   logout: () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    set({ token: null, user: null });
+    localStorage.removeItem("userId");
+    localStorage.removeItem("name");
+    localStorage.removeItem("correo");
+    localStorage.removeItem("usuario");
+    window.location.reload();
+    set({
+      token: null,
+      user: null,
+      correo: new Set(),
+      userId: new Set(),
+      name: new Set(),
+      usuario: new Set(),
+    });
   },
 }));

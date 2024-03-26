@@ -26,6 +26,7 @@ import Faqs from "./src/assets/components/Faqs.jsx";
 import Footer from "./src/assets/components/Footer.jsx";
 import NotFound from "./src/assets/components/NotFound.jsx";
 import ScrollUpButton from "./src/assets/components/utilities/ScrollUpButton.jsx";
+import UserCreatedSuccess from "./src/assets/components/UserCreatedSuccess.jsx";
 function MainContent() {
   const location = useLocation();
   const [search, setSearchTerm] = useState("");
@@ -111,6 +112,7 @@ function App() {
             }
           />
           <Route path="/searchservices" element={<SearchServices />} />
+          <Route path="/usuario-exitoso" element={<UserCreatedSuccess />} />
         </Route>
         <Route element={<PrivateRouter />}>
           <Route path="/dashboard" element={<Dashboard />} />

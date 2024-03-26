@@ -336,3 +336,7 @@ a {
 .text-align-middle {
   vertical-align: middle;
 }
+
+.card {
+  border: none;
+}

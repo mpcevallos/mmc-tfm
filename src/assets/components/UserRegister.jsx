@@ -2,9 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Icon } from "@iconify-icon/react";
+//import useToken from "/src/assets/components/utilities/useToken.js";
+import useUserId from "/src/assets/components/utilities/useUserId.js";
+import useAvatar from "/src/assets/components/utilities/useAvatar.js";
 //import { register } from "../../../services/user-services";
 
 function UserRegister() {
+  const id = useUserId();
+  const avatar = useAvatar();
+
   const [token, setToken] = useState(null);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -23,8 +29,14 @@ function UserRegister() {
     password,
   };
 
+  const handleClear = () => {
+    setNombre("");
+    setApellido("");
+    setEmail("");
+    setPassword("");
+  };
+
   const CreateUserHandler = async () => {
-    //setNombre("Marco");
     console.log({ postData });
     try {
       const response = await fetch(apiUrl, {
@@ -40,33 +52,31 @@ function UserRegister() {
         console.log({ data });
         setError(false);
         const token = data.token;
-        localStorage.setItem("token", token);
+        // Verifica si el token recibido es definido y no nulo
+        if (typeof token !== "undefined" && token !== null) {
+          setToken(token);
+          localStorage.setItem("token", token);
+        } else {
+          setToken(null);
+          localStorage.removeItem("token");
+        }
 
-        // Actualiza el estado del token
-        setToken(token);
-
-        // Redirige a la página principal FUNCIONANDO...
-        navigate("/dashboard", {
-          replace: true,
-          state: {
-            message: "Credenciales correctas. Por favor, inicia sesión.",
-          },
-        });
+        navigate("/usuario-exitoso");
       } else {
         console.log(response.status);
         setError(true);
-
-        // Mostrar una alerta
         alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
       }
     } catch (error) {
       console.error("Error:", error);
       setError(true);
-
-      // Mostrar una alerta
       console.error(
         "Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde."
       );
+
+      // Restablecer el token local a null cuando se produce un error
+      setToken(null);
+      localStorage.setItem("token", null);
     }
   };
 

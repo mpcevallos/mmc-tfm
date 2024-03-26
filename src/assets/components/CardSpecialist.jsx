@@ -14,7 +14,7 @@ const CardSpecialist = () => {
                 style={{
                   color: "#16bfa3",
                   fontSize: "42px",
-                  marginRight: "10px", // Agrega un margen derecho para separar el ícono del texto
+                  marginRight: "10px",
                 }}
               />
               <span>&nbsp;Especialistas destacados</span>
@@ -32,7 +32,7 @@ const CardSpecialist = () => {
                 </div>
                 <div className="col-md-8 mt-3">
                   <div
-                    className="card-body shadow mt-3 rounded-3"
+                    className="card-body shadow-sm mt-3 rounded-3"
                     style={{ height: "200px" }}
                   >
                     <h5 className="card-title poppins-semibold">
@@ -66,7 +66,7 @@ const CardSpecialist = () => {
                 </div>
                 <div className="col-md-8 mt-3">
                   <div
-                    className="card-body shadow mt-3 rounded-3"
+                    className="card-body shadow-sm mt-3 rounded-3"
                     style={{ height: "200px" }}
                   >
                     <h5 className="card-title poppins-semibold">
@@ -97,7 +97,7 @@ const CardSpecialist = () => {
                 </div>
                 <div className="col-md-8 mt-3">
                   <div
-                    className="card-body shadow mt-3 rounded-3"
+                    className="card-body shadow-sm mt-3 rounded-3"
                     style={{ height: "200px" }}
                   >
                     <h5 className="card-title poppins-semibold">

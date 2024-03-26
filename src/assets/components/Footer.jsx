@@ -29,10 +29,6 @@ function Footer() {
                     Quienes Somos
                   </Link>
                   <br />
-                  <Link to="/register" className="text-nav-left font-white">
-                    Registrate Gratis
-                  </Link>
-                  <br />
                   <Link
                     to="/preguntas-frecuentes"
                     className="text-nav-left font-white"

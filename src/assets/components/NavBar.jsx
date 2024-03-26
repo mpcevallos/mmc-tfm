@@ -1,13 +1,12 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-// import Login from "./Login";
-// import Faqs from "./Faqs";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useStore } from "../context/store";
 
 function NavBar() {
   const location = useLocation();
-  const { token } = useStore();
-  const { user, logout } = useStore();
+  const { token, user, logout } = useStore();
+  const navigate = useNavigate();
+
   console.log({ user });
 
   // const { state } = useLocation();
@@ -72,8 +71,8 @@ function NavBar() {
                           Registrate Gratis
                         </Link>
                       )}
-                      {user && location.pathname !== "/dashboard" && (
-                        <Link className="nav-link active" to="/dashboard">
+                      {user && location.pathname !== "/login" && (
+                        <Link className="nav-link active" to="/login">
                           Registrate Gratis
                         </Link>
                       )}
@@ -85,7 +84,7 @@ function NavBar() {
                     </li>
                     <li className="nav-item">
                       {location.pathname !== "/login" ? (
-                        <Link className="nav-link" to="/dashboard">
+                        <Link className="nav-link" to="/login">
                           Mi Cuenta
                         </Link>
                       ) : (
@@ -131,7 +130,7 @@ function NavBar() {
                             <button
                               type="button"
                               className="btn btn-secondary btn-md mx-2 rounded-pill"
-                              onClick={logout}
+                              onClick={() => logout(navigate)}
                               style={{ display: "flex", alignItems: "center" }}
                             >
                               <span

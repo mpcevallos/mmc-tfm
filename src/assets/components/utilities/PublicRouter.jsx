@@ -3,7 +3,7 @@ import { useStore } from "../../context/store";
 
 const PublicRouter = () => {
   const { user } = useStore();
-  return user ? <Navigate to="/dashboard" /> : <Outlet />;
+  return user ? <Navigate to="/login" /> : <Outlet />;
 };
 
 export default PublicRouter;
