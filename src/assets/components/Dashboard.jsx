@@ -52,7 +52,6 @@ function Dashboard({ onLoginComplete }) {
   };
 
   const apiUrl = `http://localhost:3000/api/usuario/`;
-  //const apiUrl = `http://localhost:3000/api/usuario/${id}`;
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -189,8 +188,8 @@ function Dashboard({ onLoginComplete }) {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especialidades
               </h3>
               <br />
-              <Link to="/">Ver especialidades</Link>
-              <p className="poppins-semibold red">Proximamente</p>
+              <Link to="/especialidades">Ver especialidades</Link>
+              <p className="poppins-semibold red">Nuevo</p>
             </ul>
             <h3 className="poppins-medium poppins-sm-semibold mt-5">
               {" "}

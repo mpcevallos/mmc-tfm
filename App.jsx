@@ -27,6 +27,7 @@ import Footer from "./src/assets/components/Footer.jsx";
 import NotFound from "./src/assets/components/NotFound.jsx";
 import ScrollUpButton from "./src/assets/components/utilities/ScrollUpButton.jsx";
 import UserCreatedSuccess from "./src/assets/components/UserCreatedSuccess.jsx";
+
 function MainContent() {
   const location = useLocation();
   const [search, setSearchTerm] = useState("");
@@ -37,7 +38,7 @@ function MainContent() {
       {location.pathname !== "/especialidades" && (
         <SearchServices search={search} setSearchTerm={setSearchTerm} />
       )}
-      <Especialidades search={search} />
+      <Specialities search={search} />
     </>
   );
 }
@@ -118,8 +119,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/citas" element={<CreateAppointment />} />
           <Route path="/consultarcitas" element={<GetAppointment />} />
+          <Route path="/especialides" component={MainContent} />
         </Route>
 
+        <Route path="/especialidades" component={MainContent} />
         <Route path="/quienes-somos" element={<AboutUs />} />
         <Route path="/preguntas-frecuentes" element={<Faqs />} />
         <Route

@@ -57,7 +57,7 @@ function TopDashboard() {
                   Consultar citas
                 </Link>
               </div>
-              {/* <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
+              <div className="col poppins-sm-semibold font-white mt-3 font-header-dash">
                 <Link to="/especialidades">
                   <Icon
                     icon="tabler:heart-search"
@@ -67,7 +67,8 @@ function TopDashboard() {
                   />
                   <br />
                   Especialidades
-                </Link> */}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

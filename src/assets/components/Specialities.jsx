@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getSpecialities } from "../../../services/service.js";
-import SearchServices from "./SearchServices.jsx";
+import Header from "./Header.jsx";
+import { useLocation } from "react-router-dom";
 
 function Specialities({ search }) {
+  const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [specialities, setSpecialities] = useState(null);
 
@@ -30,7 +32,10 @@ function Specialities({ search }) {
 
   return (
     <>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      {location.pathname === "/especialidades" && (
+        <Header texto="Especialidades" className="container-fluid" />
+      )}
+      <div className="row row-cols-1 row-cols-md-3 g-4 mt-2">
         {specialities
           .filter((speciality) => {
             const lowerSearch = search.toLowerCase();
