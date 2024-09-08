@@ -1,4 +1,5 @@
-import React from "react";
+//import React from "react";
+import PropTypes from "prop-types";
 import Header from "./Header";
 
 function NotFound(props) {
@@ -8,5 +9,9 @@ function NotFound(props) {
     </>
   );
 }
+
+NotFound.propTypes = {
+  texto: PropTypes.string.isRequired,
+};
 
 export default NotFound;

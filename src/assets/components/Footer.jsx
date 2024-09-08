@@ -13,7 +13,7 @@ function Footer() {
               <div className="col-xl-2 col-md-6 col-12 pb-4 d-flex flex-column align-items-center justify-content-center box-blue mx-auto">
                 <div className="pt-4 text-nav-left d-flex flex-column flex-wrap align-items-center justify-content-center box-blue text-center">
                   <img
-                    src="../src/assets/img/brand/logo-white.png"
+                    src="/src/assets/img/brand/logo-white.png"
                     alt="Logo de Metabolic Medical Center"
                     style={{ width: "190px", height: "53px" }}
                   />

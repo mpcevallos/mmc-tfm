@@ -47,8 +47,8 @@ function AboutUs() {
           </div>
           <div className="container-fluid col-12 col-md-6 mt-5 m-4">
             <img
-              src="./src/assets/img/brand/doctores-grupo.jpg"
-              class="img-fluid rounded float-end"
+              src="/src/assets/img/brand/doctores-grupo.jpg"
+              className="img-fluid rounded float-end"
               alt="Fotografía de médicos del Metabolic Medical Center"
             />
           </div>

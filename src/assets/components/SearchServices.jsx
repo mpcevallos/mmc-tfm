@@ -9,7 +9,6 @@ function SearchServices({ searchTerm, setSearchTerm }) {
   };
   return (
     <>
-      
       <div className="container-fluid bg-search col-12 mt-5 mb-5 pt-5">
         <div className="d-flex container-fluid col-12 mt-4 pb-5 align-items-center justify-content-center">
           <div
@@ -50,12 +49,12 @@ function SearchServices({ searchTerm, setSearchTerm }) {
                 </div>
                 <div className="col d-flex align-items-end">
                   <div className="d-grid col-6 mx-auto">
-                    <button
+                    {/* <button
                       type="submit"
                       className="btn btn-primary btn-lg rounded-pill"
                     >
                       Buscar
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </form>
