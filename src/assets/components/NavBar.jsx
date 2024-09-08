@@ -23,8 +23,7 @@ function NavBar() {
 
   return (
     <>
-      <div>
-        <nav className="container-fluid navbar navbar-expand-lg bg-light sticky-top shadowtop col-12">
+        <nav className="container-fluid navbar navbar-expand-lg bg-light shadowtop col-12">
           <div className="container align-items-center justify-content-center">
             <div className="col">
               <div className="navbar navbar-expand-lg">
@@ -34,7 +33,7 @@ function NavBar() {
                       <img
                         src="./src/assets/img/brand/logo.png"
                         alt="Logo Metabolic Medical Center"
-                        style={{ maxWidth: "200px" }}
+                        style={{ maxWidth: "200px", marginLeft: "-80px", marginRight: "100px" }}
                       />
                     </Link>
                   </div>
@@ -57,7 +56,7 @@ function NavBar() {
                   <ul className="navbar-nav">
                     <li className="nav-item col-lg">
                       <Link
-                        className="nav-link active"
+                        className="nav-link"
                         aria-current="page"
                         aria-expanded="false"
                         to="/quienes-somos"
@@ -65,20 +64,20 @@ function NavBar() {
                         Quiénes Somos
                       </Link>
                     </li>
-                    <li className="nav-item ">
+                    <li className="nav-item">
                       {!token && (
-                        <Link className="nav-link active" to="/register">
+                        <Link className="nav-link" to="/register">
                           Registrate Gratis
                         </Link>
                       )}
                       {user && location.pathname !== "/login" && (
-                        <Link className="nav-link active" to="/login">
+                        <Link className="nav-link" to="/login">
                           Registrate Gratis
                         </Link>
                       )}
                     </li>
-                    <li className="nav-link">
-                      <Link to="/preguntas-frecuentes">
+                    <li className="nav-item">
+                      <Link to="/preguntas-frecuentes" className="nav-link">
                         Preguntas Frecuentes
                       </Link>
                     </li>
@@ -105,23 +104,22 @@ function NavBar() {
               <div className="row">
                 <div className="col">
                   <div className="row">
-                    <form className="d-flex" role="search"></form>
                     <div className="col">
-                      <div className="col d-flex justify-content-end mb-3">
+                      <div className="col justify-content-end mb-3">
                         {/* Botón de inicio de sesión condicional */}
                         {!token && (
                           <Link
-                            className="btn btn-primary btn-md mx-2 rounded-pill"
+                            className="btn btn-outline-primary btn-md rounded-pill"
                             to="/login"
                             type="submit"
                           >
                             <iconify-icon
                               icon="mdi:logout"
-                              width="19"
-                              height="19"
+                              width= "20px"
+                              height="16px"
                               style={{ marginRight: "5px" }}
                             ></iconify-icon>
-                            Iniciar Sesión
+                            <span style={{ fontWeight: '600'}}>Iniciar Sesión</span>
                           </Link>
                         )}
                         {/* Botón de cerrar sesión */}
@@ -165,7 +163,6 @@ function NavBar() {
             </div>
           </div>
         </nav>
-      </div>
     </>
   );
 }

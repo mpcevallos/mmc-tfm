@@ -318,7 +318,7 @@ function Dashboard({ onLoginComplete }) {
                   Guardar
                 </button>
                 <button
-                  type="button"
+                  type="reset"
                   className="container-fluid btn btn-outline-primary w-50 rounded-pill"
                   onClick={handleClear}
                 >

@@ -194,7 +194,7 @@ function CreateAppointment({ onLoginComplete }) {
                 <div className="mb-3 p-3">
                   <div className="container fluid d-flex justify-content-center mx-auto">
                     <button
-                      type="button"
+                      type="reset"
                       className="btn btn-outline-primary btn-md mx-2 rounded-pill"
                       onClick={handleClear}
                       style={{ width: "604px" }}

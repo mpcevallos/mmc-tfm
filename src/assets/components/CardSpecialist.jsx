@@ -108,7 +108,7 @@ const CardSpecialist = () => {
                     </p>
                     <p className="card-text poppins-regular">
                       <small className="text-body-secondary poppins-regular">
-                        <i class="bi bi-star-fill yellow"></i> 4.9
+                        <i className="bi bi-star-fill yellow"></i> 4.9
                       </small>
                     </p>
                   </div>
