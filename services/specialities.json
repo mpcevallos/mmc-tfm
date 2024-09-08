@@ -2,37 +2,37 @@
   "specialities": [
     {
       "id": 1,
-      "imgSrc": "/src/assets/img/especialidades/endocrinologia.png",
+      "imgSrc": "https://res.cloudinary.com/du56wljwh/image/upload/v1725838444/endocrinologia_mmc.png",
       "title": "Endocrinología",
       "description": "Some quick example text for Especialidad 1."
     },
     {
       "id": 2,
-      "imgSrc": "/src/assets/img/especialidades/gastroenterologia.png",
+      "imgSrc": "https://res.cloudinary.com/du56wljwh/image/upload/v1725838445/gastroenterologia_mmc.png",
       "title": "Gastroenterología",
       "description": "Some quick example text for Especialidad 2."
     },
     {
       "id": 3,
-      "imgSrc": "/src/assets/img/especialidades/nutricion.png",
+      "imgSrc": "https://res.cloudinary.com/du56wljwh/image/upload/v1725838451/nutricion_mmc.png",
       "title": "Nutrición y dietetica",
       "description": "Some quick example text for Especialidad 3."
     },
         {
       "id": 4,
-      "imgSrc": "/src/assets/img/especialidades/medicinainterna.png",
+      "imgSrc": "https://res.cloudinary.com/du56wljwh/image/upload/v1725838444/medicinainterna_mmc.png",
       "title": "Medicina Interna",
       "description": "Some quick example text for Especialidad 4."
     },
         {
       "id": 5,
-      "imgSrc": "/src/assets/img/especialidades/psicologia.png",
+      "imgSrc": "https://res.cloudinary.com/du56wljwh/image/upload/v1725838444/psicologia_mmc.png",
       "title": "Psicología",
       "description": "Some quick example text for Especialidad 5."
     },
         {
       "id": 6,
-      "imgSrc": "/src/assets/img/especialidades/cardiologia.png",
+      "imgSrc": "https://res.cloudinary.com/du56wljwh/image/upload/v1725838453/cardiologia_mmc.png",
       "title": "Cardiología",
       "description": "Some quick example text for Especialidad 6."
     }
