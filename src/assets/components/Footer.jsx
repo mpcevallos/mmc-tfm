@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify-icon/react";
-import "../../assets/styles/styles.css";
+import "/src/assets/styles/styles.css";
 import { Link } from "react-router-dom";
 
 function Footer() {
