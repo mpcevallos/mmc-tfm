@@ -59,7 +59,7 @@ const CardSpecialist = () => {
                   style={{ backgroundColor: "#ACFBE1" }}
                 >
                   <img
-                    src="https://res.cloudinary.com/cloudpaudev/image/upload/v1725838424/doctor2_mmc.png"
+                    src="https://res.cloudinary.com/cloudpaudev/image/upload/v1725838471/doctores-grupo_mmc.jpg"
                     className="img-fluid rounded-start p-3 mt-5"
                     alt="Fotografía de una hombre"
                   />
