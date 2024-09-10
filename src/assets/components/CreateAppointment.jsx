@@ -53,7 +53,7 @@ function CreateAppointment({ onLoginComplete }) {
     setHora("");
   };
 
-  const apiUrl = "http://localhost:3000/api/cita/";
+  const apiUrl = process.env.REACT_APP_API_CITA;
 
   const CreateAppointmentHandler = async () => {
     console.log({ postData, postData2, token });

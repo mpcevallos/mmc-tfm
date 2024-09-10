@@ -20,7 +20,7 @@ function UserRegister() {
 
   const navigate = useNavigate();
 
-  const apiUrl = "http://localhost:3000/api/usuario/";
+  const apiUrl = process.env.REACT_APP_API_REGISTER;
 
   const postData = {
     nombre,

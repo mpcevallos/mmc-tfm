@@ -13,7 +13,7 @@ function Login({ onLoginComplete }) {
   const [error, setError] = useState(false);
   // const [successMessage, setSuccessMessage] = useState(null);
 
-  const apiUrl = "http://localhost:3000/api/usuario/login";
+  const apiUrl = process.env.REACT_APP_API_LOGIN;
 
   const navigate = useNavigate();
 
@@ -103,97 +103,100 @@ function Login({ onLoginComplete }) {
 
   return (
     <>
-      <div className="container-fluid col-lg-6 col-md-12 order-lg-2 order-md-1 d-flex justify-content-center m-0 p-0 float-end img-home">
-      </div>
+      <div className="container-fluid col-lg-6 col-md-12 order-lg-2 order-md-1 d-flex justify-content-center m-0 p-0 float-end img-home"></div>
       <div>
         <div className="grid d-grid m-0 p-0">
           <div className="container-fluid col-12 bg-mint p-2 w-100 m-0">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              loginHandler();
-            }}
-            className="bg-mint w-100 p-0 m-0"
-            style={{ width: "90px", height: "40.12em" }}
-          >
-            <div className="d-flex col-12 pb-5 justify-content-center align-items-center float-left bg-mint" ></div>
-            <h1 className="poppins-light heading1 font-white text-center mt-5 login-text">Iniciar sesión
-            </h1>
-            <div className="mt-2 p-4">
-              {/* <label htmlFor="email" className="form-label">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                loginHandler();
+              }}
+              className="bg-mint w-100 p-0 m-0"
+              style={{ width: "90px", height: "40.12em" }}
+            >
+              <div className="d-flex col-12 pb-5 justify-content-center align-items-center float-left bg-mint"></div>
+              <h1 className="poppins-light heading1 font-white text-center mt-5 login-text">
+                Iniciar sesión
+              </h1>
+              <div className="mt-2 p-4">
+                {/* <label htmlFor="email" className="form-label">
                 Email:
               </label> */}
-              <input
-                type="text"
-                className="form-control form-control-resize-login"
-                id="email1"
-                aria-describedby="emailHelp"
-                autoComplete="username"
-                placeholder="Ingresa tu correo"
-                required
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                value={email}
-              ></input>
-            </div>
-            <div className="mb-2 p-2">
-              {/* <label htmlFor="password" className="form-label">
+                <input
+                  type="text"
+                  className="form-control form-control-resize-login"
+                  id="email1"
+                  aria-describedby="emailHelp"
+                  autoComplete="username"
+                  placeholder="Ingresa tu correo"
+                  required
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  value={email}
+                ></input>
+              </div>
+              <div className="mb-2 p-2">
+                {/* <label htmlFor="password" className="form-label">
                 Contraseña:
               </label> */}
-              <input
-                type="password"
-                id="password"
-                className="form-control form-control-resize-login"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-                autoComplete="current-password"
-                placeholder="Contraseña"
-              />
-              <div className="forgot-password mt-1 font-white text-center" id="forgot-password">
-                <span>¿Olvidaste tu contraseña?</span>
+                <input
+                  type="password"
+                  id="password"
+                  className="form-control form-control-resize-login"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  autoComplete="current-password"
+                  placeholder="Contraseña"
+                />
+                <div
+                  className="forgot-password mt-1 font-white text-center"
+                  id="forgot-password"
+                >
+                  <span>¿Olvidaste tu contraseña?</span>
+                </div>
               </div>
-            </div>
-            <div className="grid d-flex gap-1 col-4 mx-auto">
-              <button
-                type="submit"
-                className="btn btn-primary btn-lg btn-login-home"
-                onSubmit={loginHandler}
-              >
-                Iniciar Sesión
-              </button>
-            </div>
-            <br></br>
-            <div className="font-white text-center">o iniciar sesión con</div>
-            <div className="pt-3 text-center">
-              <iconify-icon
-                icon="logos:facebook"
-                width="35"
-                height="35"
-                style={{ margin: '0 10px' }}
-              ></iconify-icon>
-              &nbsp;
-              <iconify-icon
-                icon="ri:apple-fill"
-                width="40"
-                height="40"
-                style={{ color: "#283544", margin: '0 10px' }}
-              ></iconify-icon>
-              &nbsp;
-              <iconify-icon
-                icon="devicon:google"
-                width="33"
-                height="33"
-                style={{ margin: '0 10px' }}
-              ></iconify-icon>
-              <div>&nbsp; &nbsp;</div>
-            </div>
-          </form>
+              <div className="grid d-flex gap-1 col-4 mx-auto">
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-lg btn-login-home"
+                  onSubmit={loginHandler}
+                >
+                  Iniciar Sesión
+                </button>
+              </div>
+              <br></br>
+              <div className="font-white text-center">o iniciar sesión con</div>
+              <div className="pt-3 text-center">
+                <iconify-icon
+                  icon="logos:facebook"
+                  width="35"
+                  height="35"
+                  style={{ margin: "0 10px" }}
+                ></iconify-icon>
+                &nbsp;
+                <iconify-icon
+                  icon="ri:apple-fill"
+                  width="40"
+                  height="40"
+                  style={{ color: "#283544", margin: "0 10px" }}
+                ></iconify-icon>
+                &nbsp;
+                <iconify-icon
+                  icon="devicon:google"
+                  width="33"
+                  height="33"
+                  style={{ margin: "0 10px" }}
+                ></iconify-icon>
+                <div>&nbsp; &nbsp;</div>
+              </div>
+            </form>
+          </div>
+          <div>&nbsp; &nbsp;</div>
         </div>
-        <div>&nbsp; &nbsp;</div>
-      </div>
       </div>
       <CardSpecialist />
     </>
