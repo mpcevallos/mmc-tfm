@@ -2,37 +2,37 @@
   "specialities": [
     {
       "id": 1,
-      "imgSrc": "http://mmc.infinityfreeapp.com/endocrinologia.png",
+      "imgSrc": "https://res.cloudinary.com/cloudpaudev/image/upload/v1725926169/endocrinologia_jg78ib.png",
       "title": "Endocrinología",
       "description": "Some quick example text for Especialidad 1."
     },
     {
       "id": 2,
-      "imgSrc": "http://mmc.infinityfreeapp.com/gastroenterologia.png",
+      "imgSrc": "https://res.cloudinary.com/cloudpaudev/image/upload/v1725926182/gastroenterologia_dfskf4.png",
       "title": "Gastroenterología",
       "description": "Some quick example text for Especialidad 2."
     },
     {
       "id": 3,
-      "imgSrc": "http://mmc.infinityfreeapp.com/nutricion.png",
+      "imgSrc": "https://res.cloudinary.com/cloudpaudev/image/upload/v1725926192/nutricion_jyezp9.png",
       "title": "Nutrición y dietetica",
       "description": "Some quick example text for Especialidad 3."
     },
         {
       "id": 4,
-      "imgSrc": "http://mmc.infinityfreeapp.com/medicinainterna.png",
+      "imgSrc": "https://res.cloudinary.com/cloudpaudev/image/upload/v1725926184/medicinainterna_fkvhuh.png",
       "title": "Medicina Interna",
       "description": "Some quick example text for Especialidad 4."
     },
         {
       "id": 5,
-      "imgSrc": "http://mmc.infinityfreeapp.com/psicologia.png",
+      "imgSrc": "https://res.cloudinary.com/cloudpaudev/image/upload/v1725926203/psicologia_vmgvlw.png",
       "title": "Psicología",
       "description": "Some quick example text for Especialidad 5."
     },
         {
       "id": 6,
-      "imgSrc": "http://mmc.infinityfreeapp.com/cardiologia.png",
+      "imgSrc": "https://res.cloudinary.com/cloudpaudev/image/upload/v1725926168/cardiologia_ey3gxp.png",
       "title": "Cardiología",
       "description": "Some quick example text for Especialidad 6."
     }
