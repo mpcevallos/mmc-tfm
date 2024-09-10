@@ -13,7 +13,7 @@ function Login({ onLoginComplete }) {
   const [error, setError] = useState(false);
   // const [successMessage, setSuccessMessage] = useState(null);
 
-  const apiUrl = process.env.REACT_APP_API_LOGIN;
+  const apiUrl = import.meta.env.REACT_APP_API_LOGIN;
 
   const navigate = useNavigate();
 
