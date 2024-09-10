@@ -31,7 +31,7 @@ function NavBar() {
                 <div className="col container align-items-center justify-content-center">
                   <Link to={"/"}>
                     <img
-                      src="https://res.cloudinary.com/cloudpaudev/image/upload/v1725838469/logo_mmc.png"
+                      src="https://res.cloudinary.com/cloudpaudev/image/upload/v1725926113/logo_b5fceh.png"
                       alt="Logo Metabolic Medical Center"
                       style={{
                         maxWidth: "200px",
