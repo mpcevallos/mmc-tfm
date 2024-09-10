@@ -50,7 +50,7 @@ function GetAppointment() {
     },
   ];*/
 
-  const apiUrl = `${process.env.REACT_APP_API_CITA}${id}`;
+  const apiUrl = `${import.meta.env.REACT_APP_API_CITA}${id}`;
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
