@@ -20,7 +20,7 @@ function UserRegister() {
 
   const navigate = useNavigate();
 
-  const apiUrl = "http://localhost:3000/api/usuario/";
+  const apiUrl = "https://mmc-tfm-server.onrender.com/api/usuario";
 
   const postData = {
     nombre,

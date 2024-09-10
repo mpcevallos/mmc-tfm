@@ -50,7 +50,7 @@ function GetAppointment() {
     },
   ];*/
 
-  const apiUrl = `http://localhost:3000/api/cita/${id}`;
+  const apiUrl = `https://mmc-tfm-server.onrender.com/api/cita/${id}`;
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
