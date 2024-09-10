@@ -535,9 +535,11 @@ img {
   margin-bottom: 1rem; /* Espacio inferior entre tarjetas */
 }
 
-/* Media Queries */
+/* Estilos específicos para pantallas pequeñas */
+
 @media (max-width: 768px) {
-  .container-lg {
+
+   .container-lg {
     padding: 0.5rem;
   }
 
@@ -565,11 +567,6 @@ img {
   .title {
     font-size: 1.2rem; /* Ajusta el tamaño del texto del título en pantallas pequeñas */
   }
-}
-
-/* Estilos específicos para pantallas pequeñas */
-
-@media (max-width: 768px) {
 
   .navbar-brand {
     display: flex;
@@ -591,6 +588,11 @@ img {
   .navbar-toggler-icon {
     background-color: transparent; /* Elimina el fondo gris */
     border: none; /* Elimina el borde */
+  }
+
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none; /* Elimina la sombra del botón al hacer focus */
   }
 }
 
@@ -623,21 +625,4 @@ img {
 .navbar-toggler-icon {
   background-color: transparent; /* Elimina el fondo gris */
   border: none; /* Elimina el borde */
-}
-
-/* Oculta el botón de iniciar sesión en pantallas pequeñas */
-.btn-login-home {
-  display: block; /* Asegúrate de que el botón esté visible en pantallas grandes */
-}
-
-/* Estilos específicos para pantallas pequeñas */
-@media (max-width: 768px) {
-  .btn-login-home {
-    display: none; /* Oculta el botón en pantallas pequeñas */
-  }
-
-  .navbar-toggler:focus {
-    outline: none;
-    box-shadow: none; /* Elimina la sombra del botón al hacer focus */
-  }
 }
