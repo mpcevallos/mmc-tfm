@@ -51,7 +51,7 @@ function Dashboard({ onLoginComplete }) {
     setNewAvatar(null);
   };
 
-  const apiUrl = `http://localhost:3000/api/usuario/`;
+  const apiUrl = process.env.REACT_APP_API_USUARIO;
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");

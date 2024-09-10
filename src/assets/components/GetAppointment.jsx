@@ -50,7 +50,7 @@ function GetAppointment() {
     },
   ];*/
 
-  const apiUrl = `http://localhost:3000/api/cita/${id}`;
+  const apiUrl = `${process.env.REACT_APP_API_CITA}${id}`;
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
