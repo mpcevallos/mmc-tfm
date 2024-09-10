@@ -1,6 +1,5 @@
 import React from "react";
 import { Icon } from "@iconify-icon/react";
-import "../../assets/styles/styles.css";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -13,7 +12,7 @@ function Footer() {
               <div className="col-xl-2 col-md-6 col-12 pb-4 d-flex flex-column align-items-center justify-content-center box-blue mx-auto">
                 <div className="pt-4 text-nav-left d-flex flex-column flex-wrap align-items-center justify-content-center box-blue text-center">
                   <img
-                    src="https://res.cloudinary.com/du56wljwh/image/upload/v1725838469/logo-white_mmc.png"
+                    src="http://mmc.infinityfreeapp.com/logo-white.png"
                     alt="Logo de Metabolic Medical Center"
                     style={{ width: "190px", height: "53px" }}
                   />

@@ -47,7 +47,7 @@ function AboutUs() {
           </div>
           <div className="container-fluid col-12 col-md-6 mt-5 m-4">
             <img
-              src="https://res.cloudinary.com/du56wljwh/image/upload/v1725838471/doctores-grupo_mmc.jpg"
+              src="http://mmc.infinityfreeapp.com/doctores-grupo.jpg"
               className="img-fluid rounded float-end"
               alt="Fotografía de médicos del Metabolic Medical Center"
             />
