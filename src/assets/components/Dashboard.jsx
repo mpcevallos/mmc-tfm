@@ -52,7 +52,7 @@ function Dashboard({ onLoginComplete }) {
   };
 
   const apiUrl = import.meta.env.REACT_APP_API_USUARIO;
-
+  
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken);
