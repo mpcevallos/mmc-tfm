@@ -53,7 +53,7 @@ function CreateAppointment({ onLoginComplete }) {
     setHora("");
   };
 
-  const apiUrl = process.env.REACT_APP_API_CITA;
+  const apiUrl = import.meta.env.REACT_APP_API_CITA;
 
   const CreateAppointmentHandler = async () => {
     console.log({ postData, postData2, token });

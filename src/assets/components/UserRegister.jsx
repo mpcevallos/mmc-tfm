@@ -20,7 +20,7 @@ function UserRegister() {
 
   const navigate = useNavigate();
 
-  const apiUrl = process.env.REACT_APP_API_REGISTER;
+  const apiUrl = import.meta.env.REACT_APP_API_REGISTER;
 
   const postData = {
     nombre,

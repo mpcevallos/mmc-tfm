@@ -51,8 +51,8 @@ function Dashboard({ onLoginComplete }) {
     setNewAvatar(null);
   };
 
-  const apiUrl = process.env.REACT_APP_API_USUARIO;
-
+  const apiUrl = import.meta.env.REACT_APP_API_USUARIO;
+  
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken);
