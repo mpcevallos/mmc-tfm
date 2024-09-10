@@ -50,6 +50,15 @@ img {
   }
 }
 
+/* Estilos generales para la navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 1rem; /* Asegúrate de que haya un poco de padding */
+}
+
 label {
   font-family: sans-serif;
   font-size: 1rem;
@@ -450,4 +459,185 @@ select:focus {
 
 .card {
   border: none;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 0 0.5rem; /* Reduce el padding en dispositivos más pequeños */
+  }
+
+  .form-control {
+    padding: 0.75rem;
+    font-size: 14px; /* Tamaño de fuente más pequeño para formularios */
+  }
+
+  .btn-login-home {
+    width: 100%;
+    font-size: 14px; /* Tamaño de fuente más pequeño para botones */
+  }
+
+  .shadowtop {
+    padding: 0.5rem 1rem; /* Reduce padding en móviles */
+  }
+
+  .shadowsearchdate {
+    padding: 0.5rem 1rem; /* Reduce padding en móviles */
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+
+  .img-home {
+    width: 100%;
+    height: auto; /* Asegúrate de que la imagen se ajuste bien en pantallas pequeñas */
+  }
+
+  /* Si tienes elementos con tamaños de fuente grandes, puedes reducirlos */
+  .heading1 {
+    font-size: 1.2rem; /* Reduce el tamaño de los encabezados en móviles */
+  }
+
+  .big-mint-icons {
+    font-size: 48px; /* Reduce el tamaño de los iconos grandes en móviles */
+  }
+
+  .small-mint-icons {
+    font-size: 36px; /* Reduce el tamaño de los iconos pequeños en móviles */
+  }
+
+  .btn-position-fixed {
+    margin-left: 0; /* Ajusta el margen para dispositivos móviles */
+  }
+
+  .text-nav-left {
+    font-size: 14px; /* Reduce el tamaño de fuente en la navegación */
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.background-img-doctor {
+  background-size: contain; /* Ajusta la imagen para que se ajuste al contenedor */
+}
+
+/* Estilos generales */
+.container-lg {
+  padding: 0 1rem; /* Añade padding para evitar que el contenido toque los bordes */
+}
+
+/* Estilos específicos para tarjetas */
+.card {
+  max-width: 100%; /* Asegúrate de que las tarjetas no excedan el ancho del contenedor */
+  margin-bottom: 1rem; /* Espacio inferior entre tarjetas */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container-lg {
+    padding: 0.5rem;
+  }
+
+  .row {
+    flex-direction: column; /* Cambia la dirección de los elementos de fila a columna en pantallas pequeñas */
+  }
+
+  .card {
+    max-width: 100%; /* Asegúrate de que las tarjetas se ajusten al ancho del contenedor */
+  }
+
+  .card-body {
+    height: auto; /* Ajusta la altura de la tarjeta para que se adapte al contenido */
+  }
+
+  .float-start {
+    text-align: center; /* Centra el texto en pantallas pequeñas */
+  }
+
+  .img-fluid {
+    max-width: 100%; /* Asegúrate de que las imágenes no excedan el ancho del contenedor */
+    height: auto; /* Mantén la proporción de la imagen */
+  }
+
+  .title {
+    font-size: 1.2rem; /* Ajusta el tamaño del texto del título en pantallas pequeñas */
+  }
+}
+
+/* Estilos específicos para pantallas pequeñas */
+
+@media (max-width: 768px) {
+
+  .navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Asegúrate de que el logo esté centrado horizontalmente */
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    top: 100%; /* Coloca el toggler debajo del logo */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px; /* Espacio entre el logo y el toggler */
+    border: none;
+    box-shadow: none;
+  }
+
+  .navbar-toggler-icon {
+    background-color: transparent; /* Elimina el fondo gris */
+    border: none; /* Elimina el borde */
+  }
+}
+
+/* Estilos generales para la navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 1rem; /* Asegúrate de que haya un poco de padding */
+}
+
+.navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4.5rem;
+}
+
+.navbar-toggler {
+  position: absolute;
+  top: 10px;
+  left: 95%;
+  transform: translateX(-50%);
+  margin-top: 10px; /* Espacio entre el logo y el toggler */
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-color: transparent; /* Elimina el fondo gris */
+  border: none; /* Elimina el borde */
+}
+
+/* Oculta el botón de iniciar sesión en pantallas pequeñas */
+.btn-login-home {
+  display: block; /* Asegúrate de que el botón esté visible en pantallas grandes */
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .btn-login-home {
+    display: none; /* Oculta el botón en pantallas pequeñas */
+  }
+
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none; /* Elimina la sombra del botón al hacer focus */
+  }
 }

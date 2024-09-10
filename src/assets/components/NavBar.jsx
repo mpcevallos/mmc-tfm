@@ -28,18 +28,18 @@ function NavBar() {
           <div className="col">
             <div className="navbar navbar-expand-lg">
               <div className="container align-items-center justify-content-center">
-                <div className="col container align-items-center justify-content-center">
-                  <Link to={"/"}>
-                    <img
-                      src="https://res.cloudinary.com/cloudpaudev/image/upload/v1725926113/logo_b5fceh.png"
-                      alt="Logo Metabolic Medical Center"
-                      style={{
-                        maxWidth: "200px",
-                        marginLeft: "-80px",
-                        marginRight: "100px",
-                      }}
-                    />
-                  </Link>
+                <div className="navbar-brand">
+                  <div className="col container align-items-center justify-content-center">
+                    <Link to={"/"}>
+                      <img
+                        src="https://res.cloudinary.com/cloudpaudev/image/upload/v1725926113/logo_b5fceh.png"
+                        alt="Logo Metabolic Medical Center"
+                        style={{
+                          maxWidth: "200px",
+                        }}
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
               <button
