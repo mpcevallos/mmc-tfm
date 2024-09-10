@@ -53,7 +53,7 @@ function CreateAppointment({ onLoginComplete }) {
     setHora("");
   };
 
-  const apiUrl = import.meta.env.REACT_APP_API_CITA;
+  const apiUrl = "https://mmc-tfm-server.onrender.com/api/cita";
 
   const CreateAppointmentHandler = async () => {
     console.log({ postData, postData2, token });

@@ -51,8 +51,8 @@ function Dashboard({ onLoginComplete }) {
     setNewAvatar(null);
   };
 
-  const apiUrl = import.meta.env.REACT_APP_API_USUARIO;
-  
+  const apiUrl = "https://mmc-tfm-server.onrender.com/api/usuario";
+
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken);
